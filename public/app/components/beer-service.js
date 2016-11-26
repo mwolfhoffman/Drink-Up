@@ -5,11 +5,11 @@ let app = angular.module('drinkUp');
     var bs = this
 
       bs.getAll=(cb)=>{
-          debugger 
+        //   debugger 
         var url = '//bcw-getter.herokuapp.com/?url=';
-        var url2 = 'http://api.brewerydb.com/v2/?key=c1329ea5e1a23b9d443282db23f01b0e' ;
+        var url2 = 'http://api.brewerydb.com/v2/?key=c1329ea5e1a23b9d443282db23f01b0e?beer' ;
         var apiUrl = url + encodeURIComponent(url2);
-           var apiUrl = 
+           
            $http.get(apiUrl)
            .then(function(res){
               cb(res)

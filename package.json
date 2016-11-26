@@ -1,0 +1,25 @@
+{
+  "name": "drinkup",
+  "version": "1.0.0",
+  "description": "Kyle and Wolf's beer app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwolfhoffman/Drink-Up.git"
+  },
+  "author": "Wolf Hoffman, Kyle Pfahler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwolfhoffman/Drink-Up/issues"
+  },
+  "homepage": "https://github.com/mwolfhoffman/Drink-Up#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "nedb": "^1.8.0"
+  }
+}
