@@ -13,11 +13,10 @@
 
         hc.searchBeer = function (query) {
             BeerService.getAll(query, (data) => {
-                console.log(data)
+               let results=data.data.data
+                console.log(results)
             })
         }
-
-
     }
 
 })(); 
