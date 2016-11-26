@@ -1,14 +1,19 @@
 let DataStore = require('nedb')
 
-//store lists of beers (ex. favorite ...etc)
-let List = new DataStore({
-    filename: './data/list.db',
+//'Liked' beers datastore
+let Liked = new DataStore({
+    filename: './data/liked.db',
     autoload: true
 })
 
-//store comments ...
-let Comment = new DataStore({
-    filename: './data/comment.db',
+//'Sucked' beers datastore
+let Sucked = new DataStore({
+    filename: './data/sucked.db',
+    autoload: true
+})
+//'Queued' beers datastore
+let Queued = new DataStore({
+    filename: './data/queued.db',
     autoload: true
 })
 
