@@ -10,10 +10,11 @@
 
     function HomeController(BeerService) {
         var hc = this;
+        
 
         hc.searchBeer = function (query) {
             BeerService.getAll(query, (data) => {
-               let results=data.data.data
+               hc.results=data.data.data
                 console.log(results)
             })
         }
