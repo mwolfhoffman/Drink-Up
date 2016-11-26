@@ -1,25 +1,72 @@
-<h1>WELCOME TO DRINK UP</h1>
-<h2>Love craft beer but can't remember what you love about it?</h2>
-<h3>We are here to help.</h3>
-
 <center>
-<div class="container">     
-<div class="row">
-<div class='style-form col-xs-12 '>   <h3>Search Beer</h3>
-<h6>Wolf did such a good job with the API that you can search anything! Try a beer name, brewery, anything!</h6>
- </div>
-<div class='col-xs-12 col-sm-6'>
-<form ng-submit="$ctrl.searchBeer($ctrl.query)">
-	<input ng-model="$ctrl.query" type="text">
-	<button type="submit">SUBMIT</button>
-</form>
-     </div>
-</div>
-</div>
+<h5>WELCOME TO DRINK UP</h5>
+<h6>Love craft beer but can't remember what you love about it?</h6>
+<p>We are here to help.</p>
+<p>Another million dollar project by Wolf and not Kyle</p>
 </center>
 
+
+<center>
+    <div class="container">
+        <div class="row">
+            <div class='style-form col-xs-12 '>
+                <h3>Search Beer</h3>
+            </div>
+            <div class='col-xs-12 col-sm-6'>
+                <form ng-submit="$ctrl.searchBeer($ctrl.query)">
+                    <input ng-model="$ctrl.query" type="text">
+                    <button type="submit">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</center>
+
+
+
 <div ng-repeat="beer in $ctrl.results">
-	<img src="{{piece.url}}" alt="{{piece.title}}">
-	<h2>{{beer.name}}</h2>
-	<h6>{{beer.description}}</h6>
+    <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{beer.labels.medium}}" width="100px">
+        </div>
+        <div class="card-content"> 
+            <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">more_vert</i></span>
+            <p>Style: {{beer.style.category.name || "Unknown Style"}}</p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+            <p>{{beer.description || "Sorry, but there is no description for this beer!"}}</p>
+            <button class="btn-primary" id="{{beer.id}}">Liked</button>
+            <button class="btn-danger" id="{{beer.id}}">Sucked</button>
+            <button class="btn-success" id="{{beer.id}}">Gotta Try It!</button>
+        </div>
+    </div>
 </div>
+
+
+
+
+
+
+
+
+<!--
+
+  <div class="col s12 m7">
+    <h2 class="header">{{beer.name}}</h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="{{beer.img}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5>Style: {{beer.style.category.name}}</h5>
+          <p>Description: {{beer.description}}</p>
+        </div>
+        <button class="btn-primary" id="{{beer.id}}">Liked</button>
+    <button class="btn-danger" id="{{beer.id}}">Sucked</button>
+    <button class="btn-success" id="{{beer.id}}">Gotta Try It!</button>
+      </div>
+    </div>
+  </div>
+  </div>-->
