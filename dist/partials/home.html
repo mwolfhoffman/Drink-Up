@@ -1,0 +1,25 @@
+<h1>WELCOME TO DRINK UP</h1>
+<h2>Love craft beer but can't remember what you love about it?</h2>
+<h3>We are here to help.</h3>
+
+<center>
+<div class="container">     
+<div class="row">
+<div class='style-form col-xs-12 '>   <h3>Search Beer</h3>
+<h6>Wolf did such a good job with the API that you can search anything! Try a beer name, brewery, anything!</h6>
+ </div>
+<div class='col-xs-12 col-sm-6'>
+<form ng-submit="$ctrl.searchBeer($ctrl.query)">
+	<input ng-model="$ctrl.query" type="text">
+	<button type="submit">SUBMIT</button>
+</form>
+     </div>
+</div>
+</div>
+</center>
+
+<div ng-repeat="beer in $ctrl.results">
+	<img src="{{piece.url}}" alt="{{piece.title}}">
+	<h2>{{beer.name}}</h2>
+	<h6>{{beer.description}}</h6>
+</div>

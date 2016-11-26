@@ -15,7 +15,7 @@ var http = require('http').Server(server);
 //Registers Middleware for server
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
-server.use('/', express.static(`${__dirname}/public`));
+server.use('/', express.static(`${__dirname}/app`));
 server.use('/api', cors(handlers.corsOptions), routes.router)
 server.use('/', handlers.defaultErrorHandler)
 

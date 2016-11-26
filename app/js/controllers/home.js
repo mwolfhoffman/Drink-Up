@@ -2,7 +2,7 @@
 
     angular.module('drinkUp')
         .component('home', {
-            templateUrl: 'app/components/home/home.html',
+            templateUrl: 'partials/home.html',
             controller: HomeController
         })
 
