@@ -6,17 +6,16 @@
             controller: HomeController
         })
 
-HomeController.$inject = ['BeerService']
-    
+    HomeController.$inject = ['BeerService']
+
     function HomeController(BeerService) {
         var hc = this;
 
-        hc.getAll = function(){
-                BeerService.getAll((data)=>{
-                    console.log(data)
-                })
+        hc.searchBeer = function (query) {
+            BeerService.getAll(query, (data) => {
+                console.log(data)
+            })
         }
-
 
 
     }

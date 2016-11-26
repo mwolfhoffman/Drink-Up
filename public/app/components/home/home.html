@@ -3,3 +3,18 @@
 <h3>We are here to help.</h3>
 
 <button class="btn-warning btn-lg" id="beer-btn" ng-click="$ctrl.getAll()">FOR NOW, CLICK THIS BUTTON TO SEE SOME BEER DATA IN YOUR CONSOLE.</button>
+
+
+<div class="container">     
+<div class="row">
+<div class='style-form col-xs-12 '>   <h3>Search Beer</h3>
+<h6>Wolf did such a good job with the API that you can search anything! Try a beer name, brewery, anything!</h6>
+ </div>
+<div class='col-xs-12 col-sm-6'>
+<form ng-submit="$ctrl.searchBeer($ctrl.query)">
+	<input ng-model="$ctrl.query" type="text">
+	<button type="submit">SUBMIT</button>
+</form>
+     </div>
+</div>
+</div>
