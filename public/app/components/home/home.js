@@ -15,7 +15,7 @@
         hc.searchBeer = function (query) {
             BeerService.getAll(query, (data) => {
                hc.results=data.data.data
-                console.log(results)
+                console.log(hc.results)
             })
         }
     }
