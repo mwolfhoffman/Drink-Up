@@ -1,38 +1,55 @@
 <center>
-<h5>WELCOME TO DRINK UP</h5>
-<h6>Love craft beer but can't remember what you love about it?</h6>
-<p>We are here to help.</p>
-<p>Another million dollar project by Wolf and not Kyle</p>
+    <h5>WELCOME TO DRINK UP</h5>
+    <h6>Love craft beer but can't remember what you love about it?</h6>
+    <p>We are here to help.</p>
+    <p>Another million dollar project by Wolf and not Kyle</p>
 </center>
 
-
+<!--Search-->
 <center>
     <div class="container">
         <div class="row">
             <div class='style-form col-xs-12 '>
                 <h3>Search Beer</h3>
             </div>
-            <div class="row">
-                <div class='col-xs-12'>
-                    <form ng-submit="$ctrl.searchBeer($ctrl.query)">
-                        <input ng-model="$ctrl.query" type="text">
-                        <button type="submit">SUBMIT</button>
-                    </form>
-                </div>
+        </div>
+        <div class="row">
+            <div class='col-xs-12'>
+                <form ng-submit="$ctrl.searchAll($ctrl.query)">
+                    <input ng-model="$ctrl.query" type="text">
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <input class="with-gap" name="group3" type="radio" id="test5" checked />
+                <label value="beers" for="test5">Beer</label>
+            </div>
+            <div class="col-xs-6">
+                <input class="with-gap" name="group3" type="radio" id="test5" checked />
+                <label value="brewery" for="test5">Brewery</label>
+            </div>
+            <button type="submit" id="search-btn">Search</button>
+            </form>
+        </div>
+    </div>
     </div>
 </center>
 
-
+<!--Results-->
 <div class="container">
     <div class="row">
-        <div ng-repeat="beer in $ctrl.results">
+        <div ng-if="$ctrl.results.length > 0">
+            <h4>{{$ctrl.allResults.length}}: Results Found</h4>
+            <!--We Will have to change this incase 0 results really are found-->
+        </div>
+        <div ng-repeat="beer in $ctrl.beerResults">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator center-block" src="{{beer.labels.medium}}" width="100px">
                 </div>
-                <div class="card-content"> 
+
+                <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">More Info</i></span>
                     <p>Style: {{beer.style.category.name || "Unknown Style"}}</p>
                 </div>
@@ -47,4 +64,3 @@
         </div>
     </div>
 </div>
-

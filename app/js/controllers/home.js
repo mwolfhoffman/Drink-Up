@@ -10,14 +10,46 @@
 
     function HomeController(BeerService) {
         var hc = this;
-        
+        hc.beerResults = [];
+        hc.breweryResults = [];
 
-        hc.searchBeer = function (query) {
+        ///////////////////////////////
+        //searches everyything/////////
+        //////////////////////////////
+        hc.searchAll = function (query) {
+            hc.resetAll()  //resets all 
+            $('#search-button').text('Loading...');
             BeerService.getAll(query, (data) => {
-               hc.results=data.data.data
-                console.log(hc.results)
+                hc.allResults = data.data.data
+                console.log(hc.allResults)
+                hc.allResults.forEach((b) => { //if results have a brewery property, they are a beer. Otherwise, they are a brewery. 
+                    b.breweries ? hc.beerResults.push(b) : hc.breweryResults.push(b)
+                    $('#search-button').text('Search');
+                })
+            })
+
+        }
+
+        hc.searchBeerOnly = (query) => {
+            debugger
+            BeerService.getAll(query, (data) => {
+                data.data.data.forEach((b) => {
+                    if (data.data.data.breweries) {
+                        hc.beerResults.push(b)
+                    }
+                })
+                console.log(hc.beerResults)
             })
         }
-     }
+
+
+        hc.resetAll = () => {
+            hc.allResults = [];
+            hc.beerResults = [];
+            hc.breweryResults = [];
+
+        }
+
+    }
 
 })(); 
