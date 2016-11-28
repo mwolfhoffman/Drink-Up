@@ -19,7 +19,6 @@
         hc.searchAll = function (query) {
             hc.resetAll()  //resets all 
             $('#search-btn').text('Loading...');
-            debugger
             BeerService.getAll(query, (data) => {
                 hc.allResults = data.data.data
                 console.log(hc.allResults)
