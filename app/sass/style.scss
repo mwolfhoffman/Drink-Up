@@ -1,8 +1,20 @@
+// Color Hunt Swatch: http://colorhunt.co/c/25747
+
+$green: #A9EEE6; 
+$beige: #FEFAEC; 
+$pink: #F38181; 
+$purple: #625772; 
+
 .card .card-image img {
     width: 30%;
     margin-top:20px;
+    background: $purple; 
+    color: $beige; 
 }
 
 body {
-    background-color: #f1f1f1;
+    background-color: $pink;
+    color: $green 
+
+
 }

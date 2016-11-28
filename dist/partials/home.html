@@ -39,11 +39,11 @@
 <!--Results-->
 <div class="container">
     <div class="row">
-        <div ng-if="$ctrl.results.length > 0">
+        <div ng-if="$ctrl.beerResults.length > 0">
             <h4>{{$ctrl.allResults.length}}: Results Found</h4>
             <!--We Will have to change this incase 0 results really are found-->
         </div>
-        <div ng-repeat="beer in $ctrl.beerResults">
+        <div ng-repeat="beer in $ctrl.breweryResults">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator center-block" src="{{beer.labels.medium}}" width="100px">

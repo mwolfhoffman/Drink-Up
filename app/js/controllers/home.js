@@ -18,13 +18,14 @@
         //////////////////////////////
         hc.searchAll = function (query) {
             hc.resetAll()  //resets all 
-            $('#search-button').text('Loading...');
+            $('#search-btn').text('Loading...');
+            debugger
             BeerService.getAll(query, (data) => {
                 hc.allResults = data.data.data
                 console.log(hc.allResults)
                 hc.allResults.forEach((b) => { //if results have a brewery property, they are a beer. Otherwise, they are a brewery. 
                     b.breweries ? hc.beerResults.push(b) : hc.breweryResults.push(b)
-                    $('#search-button').text('Search');
+                    $('#search-btn').text('Search');
                 })
             })
 
