@@ -5,11 +5,25 @@ $beige: #FEFAEC;
 $pink: #F38181; 
 $purple: #625772; 
 
+.card{
+    
+    background: $purple; 
+    color: $beige; 
+}
+
+.card-reveal{
+    color: $purple; 
+    background: $beige; 
+}
+
 .card .card-image img {
     width: 30%;
     margin-top:20px;
-    background: $purple; 
-    color: $beige; 
+}
+
+.title{
+    font-family: 'Bungee', cursive;
+
 }
 
 body {
