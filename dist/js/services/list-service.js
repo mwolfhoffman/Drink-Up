@@ -11,26 +11,35 @@
         var _sucked = [];
         var _queue = [];
 
-        Beer = function Beer(id, name, image, description, style) {
+        function Beer(id, name, image, description, style) {
             ls.id = id;
             ls.name = name;
             ls.image = image;
             ls.description = description;
-            ls.style = stye;
-        };
+            ls.style = style;
+        }
 
-        ls.getBeers = function () {
-            return _beers;
+        ls.getLiked = function () {
+            return _liked;
+        };
+        ls.getSucked = function () {
+            return _sucked;
+        };
+        ls.getQueued = function () {
+            return _queued;
         };
 
         ls.addToList = function (list, id, name, image, description, style) {
             var beer = new Beer(id, name, image, description, style);
             if (list === 'liked') {
                 _liked.push(beer);
+                saveLiked();
             } else if (list === 'sucked') {
                 _sucked.push(beer);
+                saveSucked();
             } else if (list === 'queue') {
                 _queue.push(beer);
+                saveQueued();
             } else {
                 return { "message": "Something went wrong." };
             }
@@ -84,7 +93,7 @@
             return [];
         }
 
-        function saveSucked() {
+        function saveQueued() {
             localStorage.setItem('_queued', JSON.stringify(_queued));
         }
         ///////////////////////

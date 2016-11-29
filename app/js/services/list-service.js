@@ -9,26 +9,35 @@ let app = angular.module('drinkUp');
     let _sucked = [];
     let _queue = [];
 
-    Beer = (id, name, image, description, style) => {
+    function Beer(id, name, image, description, style){
         ls.id = id;
         ls.name = name;
         ls.image = image;
         ls.description = description;
-        ls.style = stye;
+        ls.style = style;
     }
 
-    ls.getBeers = () => {
-        return _beers;
+    ls.getLiked = () => {
+        return _liked;
+    }
+    ls.getSucked = () => {
+        return _sucked;
+    }
+    ls.getQueued= () => {
+        return _queued;
     }
 
     ls.addToList = function (list, id, name, image, description, style) {
         var beer = new Beer(id, name, image, description, style)
         if (list === 'liked') {
-            _liked.push(beer)
+            _liked.push(beer);
+            saveLiked();
         } else if (list === 'sucked') {
             _sucked.push(beer)
+            saveSucked();
         } else if (list === 'queue') {
             _queue.push(beer)
+            saveQueued();
         } else {
             return { "message": "Something went wrong." }
         }
@@ -83,7 +92,7 @@ if(queuedBeers){
 return []
 }
 
-function saveSucked(){
+function saveQueued(){
 localStorage.setItem('_queued',JSON.stringify(_queued))
 } 
 ///////////////////////

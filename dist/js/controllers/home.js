@@ -7,9 +7,9 @@
         controller: HomeController
     });
 
-    HomeController.$inject = ['BeerService'];
+    // HomeController.$inject = ['BeerService', 'ListService']
 
-    function HomeController(BeerService) {
+    function HomeController(BeerService, ListService) {
         var hc = this;
         hc.beerResults = [];
         hc.breweryResults = [];
@@ -31,17 +31,27 @@
             });
         };
 
-        hc.searchBeerOnly = function (query) {
+        hc.addToList = function (list, id, name, image, description, style) {
             debugger;
-            BeerService.getAll(query, function (data) {
-                data.data.data.forEach(function (b) {
-                    if (data.data.data.breweries) {
-                        hc.beerResults.push(b);
-                    }
-                });
-                console.log(hc.beerResults);
-            });
+            ListService.addToList(list, id, name, image, description, style);
+            console.log(ListService.getLiked());
         };
+        ///////////////////////
+        ///////////////////////
+
+
+        // hc.searchBeerOnly = (query) => {
+        //     debugger
+        //     BeerService.getAll(query, (data) => {
+        //         data.data.data.forEach((b) => {
+        //             if (data.data.data.breweries) {
+        //                 hc.beerResults.push(b)
+        //             }
+        //         })
+        //         console.log(hc.beerResults)
+        //     })
+        // }
+
 
         hc.resetAll = function () {
             hc.allResults = [];
