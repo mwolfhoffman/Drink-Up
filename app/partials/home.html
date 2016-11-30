@@ -4,16 +4,17 @@
 
 <!--Search-->
 <center>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class='style-form col-xs-12 '>
-                <h3>Search Beer</h3>
+                <h6>A Beer Application</h6>
+                <h6>Version 1.0.0</h6>
             </div>
         </div>
         <div class="row">
-                <form class='col-xs-12'ng-submit="$ctrl.searchAll($ctrl.query)">
+                <form class='col-sm-6 col-sm-offset-3 search-text'ng-submit="$ctrl.searchAll($ctrl.query)">
                     <input class="text-center" ng-model="$ctrl.query" type="text">
-            <button type="submit" class=" col-xs-12 btn-lg btn-success"id="search-btn">Search</button>
+            <button type="submit" class="btn-lg btn-success"id="search-btn">Search</button>
             </form>
         </div>
         </div>
@@ -22,16 +23,17 @@
 </center>
 
 <!--Results-->
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div ng-if="$ctrl.beerResults.length > 0">
             <h4>{{$ctrl.allResults.length}}: Results Found</h4>
             <!--We Will have to change this incase 0 results really are found-->
         </div>
         <div ng-repeat="beer in $ctrl.beerResults">
-            <div class="card">
+            <div class="card col-xs-12 col-sm-4 col-md-3">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator center-block" src="{{beer.labels.medium}}" width="100px">
+                    <img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
+}}" width="100px">
                 </div>
 
                 <div class="card-content">

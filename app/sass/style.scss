@@ -5,6 +5,11 @@ $beige: #FEFAEC;
 $pink: #F38181; 
 $purple: #625772; 
 
+body {
+    background-color: $pink;
+    color: $green 
+}
+
 .card{
     
     background: $purple; 
@@ -23,12 +28,9 @@ $purple: #625772;
 
 .title{
     font-family: 'Bungee', cursive;
-
+    font-size: 5em;
 }
 
-body {
-    background-color: $pink;
-    color: $green 
-
-
+.search-text{
+    font-family: 'Bungee', cursive;
 }

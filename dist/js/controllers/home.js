@@ -37,20 +37,7 @@
             console.log(ListService.getLiked());
         };
         ///////////////////////
-        ///////////////////////
-
-
-        // hc.searchBeerOnly = (query) => {
-        //     debugger
-        //     BeerService.getAll(query, (data) => {
-        //         data.data.data.forEach((b) => {
-        //             if (data.data.data.breweries) {
-        //                 hc.beerResults.push(b)
-        //             }
-        //         })
-        //         console.log(hc.beerResults)
-        //     })
-        // }
+        ///////////////////////        
 
 
         hc.resetAll = function () {

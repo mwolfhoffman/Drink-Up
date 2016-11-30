@@ -12,7 +12,7 @@ let app = angular.module('drinkUp');
     function Beer(id, name, image, description, style){
         this.id = id;
         this.name = name;
-        this.image = image;
+        this.image = image || 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg';
         this.description = description;
         this.style = style;
     }
