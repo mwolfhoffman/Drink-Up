@@ -1,7 +1,7 @@
 (()=>{
 let app = angular.module('drinkUp'); 
 
-    app.service('ListService', function($http){
+    app.service('ListService', function(){
     var ls = this; 
     
     let _beers = [];
@@ -10,11 +10,11 @@ let app = angular.module('drinkUp');
     let _queue = [];
 
     function Beer(id, name, image, description, style){
-        ls.id = id;
-        ls.name = name;
-        ls.image = image;
-        ls.description = description;
-        ls.style = style;
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.description = description;
+        this.style = style;
     }
 
     ls.getLiked = () => {
@@ -70,6 +70,7 @@ localStorage.setItem('_liked',JSON.stringify(_liked))
 
 //sucked//
 function getSucked(){
+    debugger 
 let suckedBeers = localStorage.getItem('_sucked');
 if(suckedBeers){
     suckedBeers = JSON.parse(suckedBeers);
@@ -79,6 +80,7 @@ return []
 }
 
 function saveSucked(){
+    debugger 
 localStorage.setItem('_sucked',JSON.stringify(_sucked))
 } 
 

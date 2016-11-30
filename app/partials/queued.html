@@ -1,4 +1,11 @@
-<h1>{{3+3}}</h1>
-<h1>{{3+3}}</h1>
-<h1>{{3+3}}</h1>
-<h1>{{3+3}}</h1>
+<h1 class="text-center"> These Beers Seem Interesting </h1>
+<h3 class="text-center"><em>I just found these on this really cool web application
+    and am sort of drunk so don't want to forget these!</em></h3>
+
+
+<div ng-repeat="beer in $ctrl.getQueued()">
+    <ul>
+        <li>{{beer.name}}</li>
+    </ul>
+
+</div>

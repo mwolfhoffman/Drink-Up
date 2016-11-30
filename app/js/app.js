@@ -2,7 +2,8 @@
 
     angular.module('drinkUp', [
         'ui.router',
-        'ngSanitize'
+        'ngSanitize',
+        'ngStorage'
     ])
 
 
