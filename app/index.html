@@ -2,79 +2,85 @@
 <html lang="en" ng-app="drinkUp">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Drink Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Material Design -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Drink Up</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Material Design -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
+        <a class="navbar-brand" ui-sref="home"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg" alt="Drink Up Logo"></a>
+      </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Browse</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Beers <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Liked</a></li>
-            <li><a href="#">Sucked</a></li>
-            <li><a href="#">Want To Try</a></li>
-          </ul>
-        </li>
-      </ul>
-</nav>
-
-
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Browse</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Beers <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a ui-sref="liked">Liked</a></li>
+              <li><a ui-sref="sucked">Sucked</a></li>
+              <li><a ui-sref="queued">Want To Try</a></li>
+            </ul>
+          </li>
+        </ul>
+  </nav>
 
 
 
-    
 
 
-    <div class="main-content">
-        <ui-view></ui-view>
-    </div>
-
-    <!--JS jquery and bootstrap-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-    <!-- Material Design-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 
-    <!--angular-->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+  <div class="main-content">
+    <ui-view></ui-view>
+  </div>
 
-    <!--scripts-->
-    <script src="js/app.js"></script>
-    <script src="js/app-routes.js"></script>
-    <script src="js/services/beer-service.js"></script>
-        <script src="js/services/list-service.js"></script>
-    <script src="js/controllers/home.js"></script>
+  <!--JS jquery and bootstrap-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <!-- Material Design-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+  <!--angular-->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+
+  <!--scripts-->
+  <script src="js/app.js"></script>
+  <script src="js/app-routes.js"></script>
+  <script src="js/services/beer-service.js"></script>
+  <script src="js/services/list-service.js"></script>
+  <script src="js/controllers/home.js"></script>
+  <script src="js/controllers/list.js"></script>
+  <script src="js/controllers/liked.js"></script>
+  <script src="js/controllers/sucked.js"></script>
+  <script src="js/controllers/queued.js"></script>
+
 </body>
 
 </html>
