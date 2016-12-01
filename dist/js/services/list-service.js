@@ -7,9 +7,9 @@
         var ls = this;
 
         var _beers = [];
-        var _liked = [];
-        var _sucked = [];
-        var _queue = [];
+        var _liked = getLiked();
+        var _sucked = getSucked();
+        var _queue = getQueued();
 
         function Beer(id, name, image, description, style) {
             this.id = id;
