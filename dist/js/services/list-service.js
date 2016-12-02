@@ -9,7 +9,7 @@
         var _beers = [];
         var _liked = getLiked();
         var _sucked = getSucked();
-        var _queue = getQueued();
+        var _queued = getQueued();
 
         function Beer(id, name, image, description, style) {
             this.id = id;
@@ -17,6 +17,8 @@
             this.image = image || 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg';
             this.description = description;
             this.style = style;
+            //add glass
+            //availabilty
         }
 
         ls.getLiked = function () {
@@ -37,8 +39,8 @@
             } else if (list === 'sucked') {
                 _sucked.push(beer);
                 saveSucked();
-            } else if (list === 'queue') {
-                _queue.push(beer);
+            } else if (list === 'queued') {
+                _queued.push(beer);
                 saveQueued();
             } else {
                 return { "message": "Something went wrong." };

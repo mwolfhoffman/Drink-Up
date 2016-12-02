@@ -53,7 +53,7 @@
                     <div ng-if="beer.breweries"> <!--Keeps List buttons off brweries-->
                     <button class="btn-primary" id="{{beer.id}}" ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name)">Liked</button>
                     <button class="btn-danger" id="{{beer.id}}"ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name)">Sucked</button>
-                    <button class="btn-success" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queue', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name)">Gotta Try It!</button>
+                    <button class="btn-success" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name)">Gotta Try It!</button>
                 </div>
                 </div>   
             </div>
