@@ -71,7 +71,7 @@
 
         //sucked//
         function getSucked() {
-            debugger;
+            // debugger
             var suckedBeers = localStorage.getItem('_sucked');
             if (suckedBeers) {
                 suckedBeers = JSON.parse(suckedBeers);
@@ -81,7 +81,7 @@
         }
 
         function saveSucked() {
-            debugger;
+            // debugger
             localStorage.setItem('_sucked', JSON.stringify(_sucked));
         }
 

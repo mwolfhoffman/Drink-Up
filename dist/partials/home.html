@@ -1,6 +1,13 @@
+
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
 <center>
-    <h5 class="title">WELCOME TO DRINK UP</h5>
+    <h5  class="title">WELCOME TO DRINK UP</h5>
 </center>
+</div>
+</div>
+</div>
 
 <!--Search-->
 <center>
@@ -23,6 +30,7 @@
 </center>
 
 <!--Results-->
+                
 <div class="container-fluid">
     <div class="row">
         <div ng-if="$ctrl.beerResults.length > 0">
@@ -30,12 +38,11 @@
             <!--We Will have to change this incase 0 results really are found-->
         </div>
         <div ng-repeat="beer in $ctrl.beerResults">
-            <div class="card col-xs-12 col-sm-4 col-md-3">
+            <div class="card hoverable col-xs-12 col-sm-4">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
 }}" width="100px">
                 </div>
-
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">More Info</i></span>
                     <p>Style: {{beer.style.category.name || "Unknown Style"}}</p>
@@ -48,7 +55,7 @@
                     <button class="btn-danger" id="{{beer.id}}"ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name)">Sucked</button>
                     <button class="btn-success" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queue', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name)">Gotta Try It!</button>
                 </div>
-                </div>                
+                </div>   
             </div>
         </div>
     </div>

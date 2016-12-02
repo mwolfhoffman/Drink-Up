@@ -13,7 +13,8 @@ body {
 .card{
     
     background: $purple; 
-    color: $beige; 
+    color: $beige;  
+    display: inline;
 }
 
 .card-reveal{
@@ -33,4 +34,5 @@ body {
 
 .search-text{
     font-family: 'Bungee', cursive;
+    font-size: 3em;
 }
