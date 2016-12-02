@@ -6,11 +6,12 @@
     app.service('ListService', function () {
         var ls = this;
 
-        var _beers = [];
-        var _liked = getLiked();
-        var _sucked = getSucked();
-        var _queued = getQueued();
+        // let _beers = [];
+        var _liked = [];
+        var _sucked = [];
+        var _queued = [];
 
+        // Beer Constructor// 
         function Beer(id, name, image, description, style) {
             this.id = id;
             this.name = name;
@@ -21,16 +22,7 @@
             //availabilty
         }
 
-        ls.getLiked = function () {
-            return _liked;
-        };
-        ls.getSucked = function () {
-            return _sucked;
-        };
-        ls.getQueued = function () {
-            return _queued;
-        };
-
+        //Add to any list//
         ls.addToList = function (list, id, name, image, description, style) {
             var beer = new Beer(id, name, image, description, style);
             if (list === 'liked') {
@@ -47,29 +39,55 @@
             }
         };
 
+        //remove from any list//
         ls.removeFromList = function (id, list) {
-            list.forEach(function (b) {
+            debugger;
+            var listName = '';
+            if (list == 'liked') {
+                listName = _liked;
+            } else if (list == 'sucked') {
+                listName = _sucked;
+            } else {
+                listName = _queued;
+            }
+            listName.forEach(function (b) {
                 b.id == id ? list.splice(i, 1) : null;
+                saveList(list);
             });
         };
+
+        function saveList(list) {
+            if (list == 'liked') {
+                listName = _liked;
+            } else if (list == 'sucked') {
+                listName = _sucked;
+            } else {
+                listName = _queued;
+            }
+            localStorage.setItem(list, JSON.stringify(listName));
+        }
 
         ///////////////////////////////////////////
         //Local Storage Functions/////////////////
         ////////////////////////////////////////
 
         //Liked Beers
-        function getLiked() {
+        ls.getLiked = function () {
+            // debugger
             var likedBeers = localStorage.getItem('_liked');
+            console.log(likedBeers);
             if (likedBeers) {
                 likedBeers = JSON.parse(likedBeers);
+                console.log(likedBeers);
                 return likedBeers;
             }
             return [];
-        }
+        };
 
-        function saveLiked() {
-            localStorage.setItem('_liked', JSON.stringify(_liked));
-        }
+        // function saveLiked() {
+        //     localStorage.setItem('_liked', JSON.stringify(_liked))
+        // }
+
 
         //sucked//
         function getSucked() {
@@ -82,10 +100,10 @@
             return [];
         }
 
-        function saveSucked() {
-            // debugger
-            localStorage.setItem('_sucked', JSON.stringify(_sucked));
-        }
+        // function saveSucked() {
+        //     // debugger
+        //     localStorage.setItem('_sucked', JSON.stringify(_sucked))
+        // }
 
         //queued//
         function getQueued() {
@@ -97,11 +115,10 @@
             return [];
         }
 
-        function saveQueued() {
-            localStorage.setItem('_queued', JSON.stringify(_queued));
-        }
+        // function saveQueued() {
+        //     localStorage.setItem('_queued', JSON.stringify(_queued))
+        // }
         ///////////////////////
         ///////////////////////
-
     });
 })();

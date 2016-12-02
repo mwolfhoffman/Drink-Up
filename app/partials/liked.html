@@ -6,16 +6,22 @@
 <div ng-repeat="beer in $ctrl.getLiked() track by $index">
     <div class="card hoverable col-xs-12 col-sm-4">
         <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
+            <img class="activator center-block" src="{{beer.image? beer.image : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
 }}" width="100px">
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">More Info</i></span>
-            <p>Style: {{beer.style.category.name}}</p>
         </div>
         <div class="card-reveal">
 
             <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header">Style</div>
+                    <div class="collapsible-body">
+                        <p>{{beer.style || "There is no style information on this beer."}}</p>
+                    </div>
+                </li>
+
                 <li>
                     <div class="collapsible-header">Description</div>
                     <div class="collapsible-body">
@@ -25,19 +31,22 @@
                 <li>
                     <div class="collapsible-header">How To Enjoy It</div>
                     <div class="collapsible-body">
-                        <p>{{beer.glass.name ? beer.glass.name : "Sorry, no glass information available for this selection.
+                        <p>{{beer.glass ? beer.glass : "Sorry, no glass information available for this selection.
                             I guess you'll have to enjoy it from the can or bottle.'"}}</p>
                     </div>
                 </li>
                 <li>
                     <div class="collapsible-header">When Can I Get It?</div>
                     <div class="collapsible-body">
-                        <p>{{beer.available.description || "No availability info for this beer"}}</p>
+                        <p>{{beer.availability || "No availability info for this beer"}}</p>
                     </div>
                 </li>
             </ul>
             <span class="card-title grey-text text-darken-4">Comments<i class="material-icons right">close</i></span>
             <p>Coming Soon...</p>
+
+                <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.removeFromList($ctrl.id, $ctrl.liked)">Remove From This List</button>
+
         </div>
     </div>
 </div>
