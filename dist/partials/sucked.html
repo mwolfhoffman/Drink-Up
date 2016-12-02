@@ -2,10 +2,48 @@
 <h3 class="text-center"><em>I don't want to forget I hated these beers so I don't accidently
     try them ever again.</em></h3>
 
+<div ng-repeat="beer in $ctrl.getSucked() track by $index">
+    <div class="card hoverable col-xs-12 col-sm-4">
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
+}}" width="100px">
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">More Info</i></span>
+            <p>Style: {{beer.style.category.name}}</p>
+        </div>
+        <div class="card-reveal">
 
-<div ng-repeat="beer in $ctrl.getSucked()">
-    <ul>
-        <li>{{beer.name}}</li>
-    </ul>
-
+            <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header">Description</div>
+                    <div class="collapsible-body">
+                        <p>{{beer.description || "Sorry, but there is no description for this beer!"}}</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">How To Enjoy It</div>
+                    <div class="collapsible-body">
+                        <p>{{beer.glass.name ? beer.glass.name : "Sorry, no glass information available for this selection.
+                            I guess you'll have to enjoy it from the can or bottle.'"}}</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">When Can I Get It?</div>
+                    <div class="collapsible-body">
+                        <p>{{beer.available.description || "No availability info for this beer"}}</p>
+                    </div>
+                </li>
+            </ul>
+            <span class="card-title grey-text text-darken-4">Comments<i class="material-icons right">close</i></span>
+            <p>Coming Soon...</p>
+        </div>
+    </div>
 </div>
+
+<script>
+
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
