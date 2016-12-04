@@ -40,21 +40,18 @@
         };
 
         //remove from any list//
-        ls.removeFromList = function (id, list) {
-            debugger;
-            var listName = '';
-            if (list == 'liked') {
-                listName = _liked;
-            } else if (list == 'sucked') {
-                listName = _sucked;
-            } else {
-                listName = _queued;
-            }
-            listName.forEach(function (b) {
-                b.id == id ? list.splice(i, 1) : null;
-                saveList(list);
-            });
-        };
+        // ls.removeFromList = function (id, list) {
+        //     debugger 
+        //     let listName = ''
+        //     if (list == 'liked') { listName = _liked }
+        //     else if (list == 'sucked') { listName = _sucked }
+        //     else { listName = _queued }
+        //     listName.forEach((b) => {
+        //         b.id == id ? list.splice(i, 1) : null;
+        //         saveList(list)
+        //     })
+        // }
+
 
         function saveList(list) {
             if (list == 'liked') {
