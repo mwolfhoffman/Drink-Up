@@ -63,6 +63,15 @@
             localStorage.setItem('liked', JSON.stringify(liked));
         };
 
+        ls.removeLiked = function (id) {
+            debugger;
+            var likedBeers = ls.getLiked();
+            likedBeers.forEach(function (b) {
+                id == b.id ? likedBeers.splice(b, 1) : null;
+            });
+            ls.saveLiked();
+        };
+
         /////////////
         //sucked////
         /////////////

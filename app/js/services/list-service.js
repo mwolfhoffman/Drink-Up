@@ -63,6 +63,15 @@
             localStorage.setItem('liked', JSON.stringify(liked))
         }
 
+        ls.removeLiked=function(id){
+            debugger 
+            let likedBeers = ls.getLiked();
+            likedBeers.forEach((b)=>{
+                id == b.id? likedBeers.splice(b,1) : null;
+            })
+                ls.saveLiked(); 
+        }
+
         /////////////
         //sucked////
         /////////////
