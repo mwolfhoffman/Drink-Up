@@ -6,8 +6,8 @@
 <div ng-repeat="beer in $ctrl.queued">
     <div class="card hoverable col-xs-12 col-sm-4">
         <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
-}}" width="100px">
+            <!--<img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'-->
+<!--}}" width="100px">-->
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">More Info</i></span>
@@ -38,7 +38,7 @@
             </ul>
             <span class="card-title grey-text text-darken-4">Comments<i class="material-icons right">close</i></span>
             <p>Coming Soon...</p>
-            <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.removeLiked(this.id)">Remove From This List</button>
+            <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.removeQueued(beer.id)">Remove From This List</button>
         </div>
     </div>
 </div>
