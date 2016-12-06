@@ -6,12 +6,11 @@
 <div ng-repeat="beer in $ctrl.queued">
     <div class="card hoverable col-xs-12 col-sm-4">
         <div class="card-image waves-effect waves-block waves-light">
-            <!--<img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'-->
-<!--}}" width="100px">-->
+            <img class="activator center-block" src="{{beer.image}}"  width="100px">
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">More Info</i></span>
-            <p>Style: {{beer.style.category.name}}</p>
+            <p>Style: {{beer.style}}</p>
         </div>
         <div class="card-reveal">
 

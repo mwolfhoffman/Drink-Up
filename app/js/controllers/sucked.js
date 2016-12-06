@@ -27,8 +27,6 @@
             ListService.saveSucked();
             sc.sucked = ListService.JSON.parse('sucked')
         }
-         
-
     }
 
 })(); 

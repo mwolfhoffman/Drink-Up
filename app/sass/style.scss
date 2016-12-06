@@ -1,25 +1,27 @@
 // Color Hunt Swatch: http://colorhunt.co/c/25747
 
-$green: #A9EEE6; 
-$beige: #FEFAEC; 
-$pink: #F38181; 
-$purple: #625772; 
+$fresh: #4ABDAC; 
+$vermillion: #FC4A1A; 
+$sunshine: #F7B733; 
+$clean: #DFDCE3; 
 
 body {
-    background-color: $pink;
-    color: $green 
+    background-color: $fresh;
+    color: $sunshine
 }
 
 .card{
     
-    background: $purple; 
-    color: $beige;  
-    display: inline;
+    background: $clean; 
+    color: $vermillion;  
+    display: inline-block;
+    margin: 1%; 
+    height: 300px;  
 }
 
 .card-reveal{
-    color: $purple; 
-    background: $beige; 
+    color: $vermillion; 
+    background: $clean; 
 }
 
 .card .card-image img {
