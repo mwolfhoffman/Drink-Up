@@ -68,7 +68,7 @@ gulp.task('css', () => {
     .pipe(concat('main.css')) 
     .pipe(minifyCss()) 
     .pipe(gulp.dest('./dist/css/'))
-    .pipe(notify("CSS has completed"));
+    // .pipe(notify("CSS has completed"));
 });
 
 
@@ -80,7 +80,7 @@ gulp.task('images', () => {
       interlaced:true
     })))
     .pipe(gulp.dest('dist/images'))
-    .pipe(notify("Images has completed"));
+    // .pipe(notify("Images has completed"));
 });
 
 
@@ -93,7 +93,7 @@ gulp.task('babel', () => {
     }))
     .on('error', console.error.bind(console))
     .pipe(gulp.dest('dist/js/'))
-    .pipe(notify("Babel has completed"));
+    // .pipe(notify("Babel has completed"));
 });
 
 
@@ -102,7 +102,7 @@ gulp.task('html', () => {
   gulp.src(['./app/**/*.html', './app/partials/**/*.html'])
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(gulp.dest('./dist/'))
-    .pipe(notify("HTML has completed"));
+    // .pipe(notify("HTML has completed"));
 })
 
 
@@ -111,7 +111,7 @@ gulp.task('fonts', () => {
   return gulp.src('app/fonts/**/*')
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(gulp.dest('dist/fonts'))
-    .pipe(notify("Fonts has completed"));
+    // .pipe(notify("Fonts has completed"));
 });
 
 
