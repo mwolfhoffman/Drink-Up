@@ -7,11 +7,14 @@
         controller: SuckedController
     });
 
-    function SuckedController(ListService) {
-        var lc = this;
+    SuckedController.$inject = ['ListService'];
 
-        lc.getSucked = function () {
-            return ListService.getSucked();
+    function SuckedController(ListService) {
+        var sc = this;
+
+        sc.sucked = [];
+        sc.$onInit = function () {
+            sc.sucked = ListService.getSucked();
         };
     }
 })();

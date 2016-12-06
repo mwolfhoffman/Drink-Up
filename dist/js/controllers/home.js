@@ -34,8 +34,7 @@
         hc.addToList = function (list, id, name, image, description, style) {
             // debugger 
             ListService.addToList(list, id, name, image, description, style);
-
-            console.log(ListService.getLiked());
+            // console.log(ListService.getLiked());
         };
         ///////////////////////
         ///////////////////////        

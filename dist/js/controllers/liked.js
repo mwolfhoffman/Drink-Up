@@ -7,11 +7,20 @@
         controller: LikedController
     });
 
+    LikedController.$inject = ['ListService'];
+
     function LikedController(ListService) {
         var lc = this;
 
-        lc.getLiked = function () {
-            return ListService.getLiked();
+        lc.liked = [];
+        lc.$onInit = function () {
+            lc.liked = ListService.getLiked();
+        };
+
+        lc.removeLiked = function (id) {
+            // debugger 
+            ListService.removeLiked(id);
+            //   return ListService.getLiked(); 
         };
     }
 })();

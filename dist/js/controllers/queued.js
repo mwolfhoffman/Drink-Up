@@ -10,8 +10,9 @@
     function QueuedController(ListService) {
         var qc = this;
 
-        qc.getQueued = function () {
-            return ListService.getQueued();
+        qc.queued = [];
+        qc.$onInit = function () {
+            qc.queued = ListService.getQueued();
         };
     }
 })();
