@@ -90,6 +90,14 @@
             localStorage.setItem('sucked', JSON.stringify(sucked));
         };
 
+        ls.removeSucked = function (id) {
+            var suckedBeers = ls.getSucked();
+            sucked = suckedBeers.filter(function (b) {
+                return id != b.id;
+            });
+            ls.saveSucked();
+        };
+
         //queued//
         ls.getQueued = function () {
             var queuedBeers = localStorage.getItem('queued');
@@ -102,6 +110,14 @@
 
         ls.saveQueued = function () {
             localStorage.setItem('queued', JSON.stringify(queued));
+        };
+
+        ls.removeQueued = function (id) {
+            var queuedBeers = ls.getQueued();
+            queued = queuedBeers.filter(function (b) {
+                return id != b.id;
+            });
+            ls.saveQueued();
         };
         ///////////////////////
         ///////////////////////

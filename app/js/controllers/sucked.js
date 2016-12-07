@@ -12,21 +12,14 @@
         var sc = this;
         
         sc.sucked = [];
-        sc.$onInit = function() {
+        sc.$onInit =()=>{
             sc.sucked = ListService.getSucked();
         }
 
-          sc.removeSucked = (id) => {
-            debugger
-            for (var i = 0; i < sc.sucked.length; i++) {
-                let beer = sc.sucked[i]
-                if (id == beer.id) {
-                    sc.sucked.splice(i, 1)
+           sc.removeSucked = (id) => {
+            ListService.removeSucked(id)
+            sc.sucked = ListService.getSucked();  
                 }
-            }
-            ListService.saveSucked();
-            sc.sucked = ListService.JSON.parse('sucked')
-        }
     }
 
 })(); 

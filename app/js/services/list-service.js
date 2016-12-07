@@ -90,6 +90,14 @@
             localStorage.setItem('sucked', JSON.stringify(sucked))
         }
 
+          ls.removeSucked=(id)=>{
+            let suckedBeers = ls.getSucked();
+            sucked = suckedBeers.filter((b)=>{
+                return(id != b.id)
+                 }) 
+                ls.saveSucked(); 
+        }
+
         //queued//
         ls.getQueued = function () {
             let queuedBeers = localStorage.getItem('queued');
@@ -102,6 +110,14 @@
 
         ls.saveQueued = function () {
             localStorage.setItem('queued', JSON.stringify(queued))
+        }
+
+          ls.removeQueued=(id)=>{
+            let queuedBeers = ls.getQueued();
+            queued = queuedBeers.filter((b)=>{
+                return(id != b.id)
+                 }) 
+                ls.saveQueued(); 
         }
         ///////////////////////
         ///////////////////////

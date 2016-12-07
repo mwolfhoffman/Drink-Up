@@ -16,16 +16,10 @@
         }
 
           qc.removeQueued = (id) => {
-            debugger
-            for (var i = 0; i < qc.queued.length; i++) {
-                let beer = qc.queued[i]
-                if (id == beer.id) {
-                    qc.queued.splice(i, 1)
-                }
-            }
-            ListService.saveQueued();
-            qc.queued = ListService.JSON.parse('queued')
-        }
+            ListService.removeQueued(id)
+            qc.queued = ListService.getQueued();  
+                }  
+        
          
     }
 

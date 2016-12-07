@@ -18,15 +18,8 @@
         };
 
         sc.removeSucked = function (id) {
-            debugger;
-            for (var i = 0; i < sc.sucked.length; i++) {
-                var beer = sc.sucked[i];
-                if (id == beer.id) {
-                    sc.sucked.splice(i, 1);
-                }
-            }
-            ListService.saveSucked();
-            sc.sucked = ListService.JSON.parse('sucked');
+            ListService.removeSucked(id);
+            sc.sucked = ListService.getSucked();
         };
     }
 })();
