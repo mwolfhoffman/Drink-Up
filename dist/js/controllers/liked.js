@@ -19,14 +19,9 @@
 
         lc.removeLiked = function (id) {
             debugger;
-            for (var i = 0; i < lc.liked.length; i++) {
-                var beer = lc.liked[i];
-                if (id == beer.id) {
-                    lc.liked.splice(i, 1);
-                }
-            }
-            ListService.saveLiked();
-            lc.liked = ListService.JSON.parse('liked');
+
+            ListService.removeLiked(id);
+            lc.liked = ListService.getLiked();
         };
     }
 })();
