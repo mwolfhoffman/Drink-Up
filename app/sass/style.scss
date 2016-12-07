@@ -1,10 +1,9 @@
 // Color Hunt Swatch: http://colorhunt.co/c/25747
-
+// @import "responsive.scss";
 $fresh: #4ABDAC; 
 $vermillion: #FC4A1A; 
 $sunshine: #F7B733; 
 $clean: #DFDCE3; 
-
 $background:#E9573F; 
 
 
@@ -35,10 +34,10 @@ $background:#E9573F;
 
 ///Card///
 .card{    
-    background: $background; 
-    color: $clean;  
+    background: pink; 
+    color: $fresh;  
+    height: 500px;
     width: 500px; 
-    height: 500px; 
     border-radius: 35%; 
  }
 
