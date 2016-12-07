@@ -19,10 +19,6 @@ $background:#E9573F;
     font-size: 3em;
 }
 
-
-
-///////////////////
-
 .beer-container {
     display: flex; 
     flex-direction: row;
@@ -43,18 +39,38 @@ $background:#E9573F;
     color: $clean;  
     width: 500px; 
     height: 500px; 
+    border-radius: 35%; 
  }
 
 .card-reveal{
     color: $vermillion; 
     background: $clean; 
+    border-radius: 10%; 
 }
 
 .card .card-image img {
     width: 200px;
     margin-top:10px;
 }
+.collapsible-header{
+   font-size: 30px; 
+     }
+.collapsible-body{
+
+     font-size: 20px
+      }
+    p{
+
+     font-size: 20px
+      }
+
+ .material-icons{
+     color: $clean; 
+
+ }
+
 
 
 @import 'draught.scss';
 @import 'responsive.scss';
+@import 'scroll.scss';
