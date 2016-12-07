@@ -1,60 +1,69 @@
 <div class="text-center">
     <h1>My Favorite Beers</h1>
-<!--ADD THE FILTER FORM NG-REPEAT DOCS-->
-<div class="beer-container">
+    <!--ADD THE FILTER FORM NG-REPEAT DOCS-->
+    <div class="beer-container">
         <div class="beer-flex" ng-repeat="beer in $ctrl.liked">
 
             <!--Part of the card that shows-->
-                <div class="card hoverable">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator center-block" src="{{beer.image}}" width="100px">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">info</i></span>
-                    </div>
+            <div class="card hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator center-block" src="{{beer.image}}" width="100px">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">info</i></span>
+                </div>
 
-                        <!--Hidden part of the card-->
-                    <div class="card-reveal">
+                <!--Hidden part of the card-->
+                <div class="card-reveal">
 
-                        <ul class="collapsible popout" data-collapsible="accordion">
-                            <li>
-                                <div class="collapsible-header">Style</div>
-                                <div class="collapsible-body">
-                                    <p>{{beer.style || "There is no style information on this beer."}}</p>
-                                </div>
-                            </li>
+                    <ul class="collapsible popout" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header">Style</div>
+                            <div class="collapsible-body">
+                                <p>{{beer.style || "There is no style information on this beer."}}</p>
+                            </div>
+                        </li>
 
-                            <li>
-                                <div class="collapsible-header">Description</div>
-                                <div class="collapsible-body">
-                                    <p>{{beer.description || "Sorry, but there is no description for this beer!"}}</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header">How To Enjoy It</div>
-                                <div class="collapsible-body">
-                                    <p>{{beer.glass ? beer.glass : "Sorry, no glass information available for this selection.
-                                        I guess you'll have to enjoy it from the can or bottle.'"}}</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header">When Can I Get It?</div>
-                                <div class="collapsible-body">
-                                    <p>{{beer.availability || "No availability info for this beer"}}</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <span class="card-title grey-text text-darken-4">Comments<i class="material-icons right">close</i></span>
-                        <p>Coming Soon...</p>
+                        <li>
+                            <div class="collapsible-header">Description</div>
+                            <div class="collapsible-body">
+                                <p>{{beer.description || "Sorry, but there is no description for this beer!"}}</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">How To Enjoy It</div>
+                            <div class="collapsible-body">
+                                <p>{{beer.glass ? beer.glass : "Sorry, no glass information available for this selection. I
+                                    guess you'll have to enjoy it from the can or bottle.'"}}</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">When Can I Get It?</div>
+                            <div class="collapsible-body">
+                                <p>{{beer.availability || "No availability info for this beer"}}</p>
+                            </div>
+                        </li>
 
-                        <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.removeLiked(beer.id)">Remove From This List</button>
+                        <li>
+                            <div class="collapsible-header">Will it get me drunk</div>
+                            <div class="collapsible-body">
+                                <p>{{beer.abv || "No abv info for this beer"}}</p>
+                                <p> {{beer.abv>6 ? "Won't get ya drunk.": "You'll be seeing double soon!"}} </p>
+                            </div>
+                        </li>
 
-                    </div>
+                    </ul>
+                    <span class="card-title grey-text text-darken-4">Comments<i class="material-icons right">close</i></span>
+                    <p>Coming Soon...</p>
+
+                    <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.removeLiked(beer.id)">Remove From This List</button>
+
                 </div>
             </div>
         </div>
-        
-<script>
+    </div>
+
+    <script>
 
   $(document).ready(function(){
     $('.collapsible').collapsible();

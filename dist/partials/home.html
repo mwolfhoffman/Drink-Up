@@ -56,23 +56,29 @@
             <h4>{{$ctrl.allResults.length}}: Results Found</h4>
             <!--We Will have to change this incase 0 results really are found-->
         </div>
-        <div ng-repeat="beer in $ctrl.beerResults">
-            <div class="card hoverable col s12 m4">
+        </div>
+        </div>
+
+
+        <div class="beer-container">
+        
+        <div class="beer-flex" ng-repeat="beer in $ctrl.beerResults">
+            <div class="card hoverable">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
 }}" width="100px">
                 </div>
                 <div class="card-content">
-                    <span class="card-title">{{beer.name}}<i class="material-icons right">More Info</i></span>
+                    <span class="card-title">{{beer.name}}<i class="material-icons right">info</i></span>
                     <p>Style: {{beer.style.category.name || "Unknown Style"}}</p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
                     <p>{{beer.description || "Sorry, but there is no description for this beer!"}}</p>
                     <div ng-if="beer.breweries"> <!--Keeps List buttons off brweries-->
-                    <button class="btn-primary" id="{{beer.id}}" ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name)">Liked</button>
-                    <button class="btn-danger" id="{{beer.id}}"ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name)">Sucked</button>
-                    <button class="btn-success" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name)">Gotta Try It!</button>
+                    <button class="btn-primary btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Liked</button>
+                    <button class="btn-danger btn-sm" id="{{beer.id}}"ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Sucked</button>
+                    <button class="btn-success btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Gotta Try It!</button>
                 </div>
                 </div>   
             </div>

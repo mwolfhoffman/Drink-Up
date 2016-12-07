@@ -16,16 +16,21 @@
         //////////////////////   
         // Beer Constructor// 
         ///////////////////
-        function Beer(id, name, image, description, style) {
+
+
+        function Beer(id, name, image, description, style, availability, glass, abv) {
             this.id = id;
             this.name = name;
             this.image = image || 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg';
             this.description = description;
             this.style = style;
+            this.availability = availability;
+            this.glass = glass;
+            this.abv = abv;
         }
 
         //Add to any list//
-        ls.addToList = function (list, id, name, image, description, style) {
+        ls.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
             debugger;
             var beer = new Beer(id, name, image, description, style);
             if (list === 'liked') {
