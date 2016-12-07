@@ -1,0 +1,31 @@
+
+$fresh: #4ABDAC; 
+$vermillion: #FC4A1A; 
+$sunshine: #F7B733; 
+$clean: #DFDCE3; 
+$background:#E9573F; 
+
+
+@media screen and (max-width: 768px) {
+    .collapsible-header{
+        font-size: 20px; 
+    }
+    .collapsible-body{
+        font-size: 10px
+    }
+    p{
+        font-size: 10px
+    }
+.card{    
+    background: $background; 
+    color: $clean;  
+    width: 300px; 
+    height: 300px; 
+
+   .card-image img {
+     width: 100px;
+     margin-top:10px;
+    }
+    
+  }
+} 

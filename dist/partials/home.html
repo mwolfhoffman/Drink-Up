@@ -1,10 +1,12 @@
 <script type="text/javascript" src="http://leaverou.github.io/prefixfree/prefixfree.min.js"></script>
 
-<div class="container">
+<div class="container" ng-if="$ctrl.beerResults.length < 1">
 <div class="row">
 <div class="col-xs-12">
 
-<section>
+    <h1>Drink Up</h1>
+
+<section class="hidden-xs">
     <div id="action">
         <div id="keg">
             <div id="pipe-handle"></div>
@@ -22,11 +24,6 @@
         </div>
     </div>
 </section>
-    
-<h1>
-    Drink Up
-</h1>
-
 </div>
 </div>
 </div> 
@@ -37,8 +34,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class='style-form col-xs-12 '>
-                <h6>A Beer Application</h6>
-                <h6>Version 1.0.0</h6>
+                <h6>Drink The Good</h6>
             </div>
         </div>
         <div class="row">
