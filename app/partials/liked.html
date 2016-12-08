@@ -1,5 +1,5 @@
 <div class="text-center">
-    <h1>My Favorite Beers</h1>
+    <h1 class="page-title">My Favorite Beers</h1>
     <!--ADD THE FILTER FORM NG-REPEAT DOCS-->
     <div class="beer-container">
         <div class="beer-flex" ng-repeat="beer in $ctrl.liked">
@@ -31,7 +31,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header">How To Enjoy It</div>
+                            <!--<div class="collapsible-header">How To Enjoy It</div>
                             <div class="collapsible-body">
                                 <p>{{beer.glass ? beer.glass : "Sorry, no glass information available for this selection. I
                                     guess you'll have to enjoy it from the can or bottle.'"}}</p>
@@ -50,7 +50,7 @@
                                 <p>{{beer.abv || "No abv info for this beer"}}</p>
                                 <p> {{beer.abv>6 ? "Won't get ya drunk.": "You'll be seeing double soon!"}} </p>
                             </div>
-                        </li>
+                        </li>-->
 
                     </ul>
                     <span class="card-title grey-text text-darken-4">Comments<i class="material-icons right">close</i></span>

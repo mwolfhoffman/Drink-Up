@@ -25,11 +25,12 @@
 <body>
 
 
+
+
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="home"><img  src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg" alt="Drink Up Logo" class="img-fluid" height="50"></a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
           aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -37,18 +38,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+            <a class="navbar-brand" href="#"><h1 class="small-title"><b>Drink Up</b></h1></a>
+
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Beers <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a ui-sref="liked">Liked</a></li>
-              <li><a ui-sref="sucked">Sucked</a></li>
-              <li><a ui-sref="queued">Want To Try</a></li>
+          <!--<li class="dropdown">-->
+            <!--<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Beers <span class="caret"></span></div>-->
+            <!--<ul class="dropdown-menu">-->
+              <li class="nav-item"><a ui-sref="liked">Liked</a></li>
+              <li class="nav-item"><a ui-sref="sucked">Sucked</a></li>
+              <li class="nav-item"><a ui-sref="queued">Want To Try</a></li>
             </ul>
           </li>
         </ul>
