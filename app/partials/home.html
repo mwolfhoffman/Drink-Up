@@ -1,32 +1,32 @@
 <script type="text/javascript" src="http://leaverou.github.io/prefixfree/prefixfree.min.js"></script>
 
 <div class="container" ng-if="$ctrl.beerResults.length < 1">
-<div class="row">
-<div class="col-xs-12">
+    <div class="row">
+        <div class="col-xs-12">
 
-    <h1>Drink Up</h1>
+            <h1>Drink Up</h1>
 
-<section class="hidden-xs">
-    <div id="action">
-        <div id="keg">
-            <div id="pipe-handle"></div>
-            <div id="pipe"></div>       
-            <div id="pipe-front"></div>
-        </div>
-    
-        <div class="glass">
-            <div class="beer"></div>
-            <div class="handle">
-                <div class="top-right"></div>
-                <div class="bottom-right"></div>
-            </div>
-            <div class="front-glass"></div>
+            <section class="hidden-xs">
+                <div id="action">
+                    <div id="keg">
+                        <div id="pipe-handle"></div>
+                        <div id="pipe"></div>
+                        <div id="pipe-front"></div>
+                    </div>
+
+                    <div class="glass">
+                        <div class="beer"></div>
+                        <div class="handle">
+                            <div class="top-right"></div>
+                            <div class="bottom-right"></div>
+                        </div>
+                        <div class="front-glass"></div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
-</section>
 </div>
-</div>
-</div> 
 
 
 <!--Search-->
@@ -38,50 +38,61 @@
             </div>
         </div>
         <div class="row">
-                <form class='col-sm-6 col-sm-offset-3 search-text'ng-submit="$ctrl.searchAll($ctrl.query)">
-                    <input class="text-center" ng-model="$ctrl.query" type="text">
-            <button type="submit" class="btn-lg btn-success"id="search-btn">Search</button>
+            <form class='col-sm-6 col-sm-offset-3 search-text' ng-submit="$ctrl.searchAll($ctrl.query)">
+                <input class="text-center" ng-model="$ctrl.query" type="text">
+                <button type="submit" class="btn-lg btn-success" id="search-btn">Search</button>
             </form>
         </div>
-        </div>
+    </div>
     </div>
     </div>
 </center>
 
 <!--Results-->
-                
+
 <div class="container-fluid">
     <div class="row">
         <div ng-if="$ctrl.beerResults.length > 0">
             <h4>{{$ctrl.allResults.length}}: Results Found</h4>
             <!--We Will have to change this incase 0 results really are found-->
         </div>
-        </div>
-        </div>
+    </div>
+</div>
 
 
-        <div class="beer-container">
-        
-        <div class="beer-flex" ng-repeat="beer in $ctrl.beerResults">
-            <div class="card hoverable">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
+<div class="beer-container">
+
+    <div class="beer-flex" ng-repeat="beer in $ctrl.beerResults">
+        <div class="card hoverable">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
 }}" width="100px">
-                </div>
-                <div class="card-content">
-                    <span class="card-title">{{beer.name}}<i class="material-icons right">info</i></span>
-                    <p>Style: {{beer.style.category.name || "Unknown Style"}}</p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
-                    <p>{{beer.description || "Sorry, but there is no description for this beer!"}}</p>
-                    <div ng-if="beer.breweries"> <!--Keeps List buttons off brweries-->
+            </div>
+            <div class="card-content">
+                <span class="card-title">{{beer.name}}
+                        <!--<i class="material-icons right">info</i></span>-->
+                <p>Style: {{beer.style.category.name || "Unknown Style"}}</p>
+
+                <button class="btn-sm" ng-click="showLists =!showLists">Add to a List</button>
+                <div class="the-lists" ng-show="showLists">
                     <button class="btn-primary btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Liked</button>
-                    <button class="btn-danger btn-sm" id="{{beer.id}}"ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Sucked</button>
+                    <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Sucked</button>
                     <button class="btn-success btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Gotta Try It!</button>
                 </div>
-                </div>   
+
+
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+                <p>{{beer.description || "Sorry, but there is no description for this beer!"}}</p>
+                <div ng-if="beer.breweries">
+                    <!--Keeps List buttons off brweries-->
+                    <button class="btn-primary btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Liked</button>
+                    <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Sucked</button>
+                    <button class="btn-success btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Gotta Try It!</button>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </div>
