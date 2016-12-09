@@ -40,12 +40,16 @@ $background:#E9573F;
     width: 400px; 
     border-radius: 35%;
     font-size: 0.5em;  
+    
+      overflow-y: scroll;
  }
 
 .card-reveal{
     color: $vermillion; 
     background: $clean; 
     border-radius: 10%; 
+    
+      overflow-y: scroll;
 }
 
 .card .card-image img {
@@ -96,9 +100,8 @@ body{
     overflow: -moz-scrollbars-none; 
 }
 
-  .card{
-      overflow-y: scroll;
-  }
+//   .card{
+//   }
 
 
 
