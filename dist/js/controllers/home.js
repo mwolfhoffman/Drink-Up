@@ -25,7 +25,7 @@
                 console.log(hc.allResults);
                 hc.allResults.forEach(function (b) {
                     //if results have a brewery property, they are a beer. Otherwise, they are a brewery. 
-                    b.breweries ? hc.beerResults.push(b) : hc.breweryResults.push(b);
+                    b.type === "beer" ? hc.beerResults.push(b) : hc.breweryResults.push(b);
                     $('#search-btn').text('Search');
                 });
             });

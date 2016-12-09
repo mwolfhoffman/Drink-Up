@@ -88,6 +88,20 @@ $background:#E9573F;
     margin-top: -10%; 
 }
 
+
+::-webkit-scrollbar { width: 0 !important }
+
+body{
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none; 
+}
+
+  .card{
+      overflow-y: scroll;
+  }
+
+
+
 @import 'draught.scss';
 @import 'responsive.scss';
 @import 'scroll.scss';
