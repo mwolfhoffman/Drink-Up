@@ -22,10 +22,16 @@
             BeerService.getAll(query, (data) => {
                 hc.allResults = data.data.data
                 console.log(hc.allResults)
+                
+                if(!hc.allResults){
+                       $('#search-btn').text('No Results. Try Again');
+                }else{
+
                 hc.allResults.forEach((b) => { //if results have a brewery property, they are a beer. Otherwise, they are a brewery. 
                     b.type==="beer" ? hc.beerResults.push(b) : hc.breweryResults.push(b)
                     $('#search-btn').text('Search');
                 })
+                }
             })
 
         }
