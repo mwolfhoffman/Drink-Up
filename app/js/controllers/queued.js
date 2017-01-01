@@ -12,12 +12,13 @@
 
         qc.queued = [];
         qc.$onInit = function() {
-            qc.queued = ListService.getQueued();
+            qc.queued = ListService.getList('queued');
+
         }
 
           qc.removeQueued = (id) => {
-            ListService.removeQueued(id)
-            qc.queued = ListService.getQueued();  
+            ListService.removeBeer('queued', id)
+            qc.queued = ListService.getList('queued');  
                 }  
         
          

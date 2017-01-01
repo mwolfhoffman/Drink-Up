@@ -12,16 +12,15 @@
     function LikedController(ListService) {
         var lc = this;
 
+        //Lifecycle Gets List of Liked Beers 
         lc.liked = [];
         lc.$onInit = function () {
-            lc.liked = ListService.getLiked();
+            lc.liked = ListService.getList('liked');
         };
 
         lc.removeLiked = function (id) {
-            debugger;
-
-            ListService.removeLiked(id);
-            lc.liked = ListService.getLiked();
+            ListService.removeBeer('liked', id);
+            lc.liked = ListService.getList('liked');
         };
     }
 })();

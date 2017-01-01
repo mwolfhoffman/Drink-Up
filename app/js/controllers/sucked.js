@@ -13,12 +13,12 @@
         
         sc.sucked = [];
         sc.$onInit =()=>{
-            sc.sucked = ListService.getSucked();
+            sc.sucked = ListService.getList('sucked');
         }
 
            sc.removeSucked = (id) => {
-            ListService.removeSucked(id)
-            sc.sucked = ListService.getSucked();  
+            ListService.removeBeer('sucked', id)
+            sc.sucked = ListService.getList('sucked');  
                 }
     }
 

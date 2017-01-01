@@ -9,6 +9,7 @@
         /////////////////////////
         //Beer Lists Declared//
         //////////////////////
+        var updatedList;
         var liked = [];
         var sucked = [];
         var queued = [];
@@ -16,8 +17,6 @@
         //////////////////////   
         // Beer Constructor// 
         ///////////////////
-
-
         function Beer(id, name, image, description, style, availability, glass, abv) {
             this.id = id;
             this.name = name;
@@ -29,102 +28,88 @@
             this.abv = abv;
         }
 
+        ///////////////////
         //Add to any list//
+        ///////////////////
         ls.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
             debugger;
-            var beer = new Beer(id, name, image, description, style);
+            var beer = new Beer(id, name, image, description, style, availability, glass, abv);
             if (list === 'liked') {
                 liked.push(beer);
-                ls.saveLiked();
+                ls.saveList(liked);
             } else if (list === 'sucked') {
                 sucked.push(beer);
-                ls.saveSucked();
+                ls.saveList(sucked);
             } else if (list === 'queued') {
                 queued.push(beer);
-                ls.saveQueued();
+                ls.saveList(queued);
             } else {
                 return { "message": "Something went wrong." };
             }
         };
 
-        ///////////////////////////////////////////
-        //Local Storage Functions/////////////////
-        ////////////////////////////////////////
-
-        ///////////////
-        //Liked Beers//
-        //////////////
-        ls.getLiked = function () {
-            // debugger
-            var likedBeers = localStorage.getItem('liked');
-            if (likedBeers) {
-                console.log(JSON.parse(likedBeers));
-                return JSON.parse(likedBeers);
+        /////////////////////
+        //Save Beer to List//
+        ////////////////////
+        ls.saveList = function (list) {
+            switch (list) {
+                case liked:
+                    localStorage.setItem('liked', JSON.stringify(liked));
+                    break;
+                case sucked:
+                    localStorage.setItem('sucked', JSON.stringify(sucked));
+                    break;
+                case queued:
+                    localStorage.setItem('queued', JSON.stringify(queued));
+                    break;
+                default:
+                    console.log('Error from ls.savedList()');
             }
-            return [];
         };
 
-        ls.saveLiked = function () {
-            localStorage.setItem('liked', JSON.stringify(liked));
-        };
-
-        ls.removeLiked = function (id) {
-            var likedBeers = ls.getLiked();
-            liked = likedBeers.filter(function (b) {
-                return id != b.id;
-            });
-            ls.saveLiked();
-        };
-
-        /////////////
-        //sucked////
-        /////////////
-        ls.getSucked = function () {
-            // debugger
-            var suckedBeers = localStorage.getItem('sucked');
-            if (suckedBeers) {
-                suckedBeers = JSON.parse(suckedBeers);
-                console.log(suckedBeers);
-                return suckedBeers;
-            }
-            return [];
-        };
-
-        ls.saveSucked = function () {
-            // debugger
-            localStorage.setItem('sucked', JSON.stringify(sucked));
-        };
-
-        ls.removeSucked = function (id) {
-            var suckedBeers = ls.getSucked();
-            sucked = suckedBeers.filter(function (b) {
-                return id != b.id;
-            });
-            ls.saveSucked();
-        };
-
-        //queued//
-        ls.getQueued = function () {
-            var queuedBeers = localStorage.getItem('queued');
-            if (queuedBeers) {
-                queuedBeers = JSON.parse(queuedBeers);
-                return queuedBeers;
-            }
-            return [];
-        };
-
-        ls.saveQueued = function () {
-            localStorage.setItem('queued', JSON.stringify(queued));
-        };
-
-        ls.removeQueued = function (id) {
-            var queuedBeers = ls.getQueued();
-            queued = queuedBeers.filter(function (b) {
-                return id != b.id;
-            });
-            ls.saveQueued();
-        };
         ///////////////////////
-        ///////////////////////
+        //Get Beers from List// 
+        //////////////////////
+        ls.getList = function (list) {
+            var likedBeer, suckedBeer, queuedBeer;
+            if (list === 'liked') {
+                return ls.getBeerList(likedBeer, 'liked');
+            } else if (list === 'sucked') {
+                return ls.getBeerList(suckedBeer, 'sucked');
+            } else if (list === 'queued') {
+                return ls.getBeerList(queuedBeer, 'queued');
+            }
+        };
+        ls.getBeerList = function (listBeer, listString) {
+            listBeer = localStorage.getItem(listString);
+            if (listBeer) {
+                console.log(JSON.parse(listBeer));
+                return JSON.parse(listBeer);
+            }
+            return [];
+        };
+
+        /////////////////////////
+        //Remove Beer from List//
+        /////////////////////////
+        ls.removeBeer = function (list, id) {
+            if (list === 'liked') {
+                ls.remove(list, id);
+                localStorage.setItem('liked', JSON.stringify(updatedList));
+            } else if (list === 'sucked') {
+                ls.remove(list, id);
+                localStorage.setItem('sucked', JSON.stringify(updatedList));
+            } else if (list === 'queued') {
+                ls.remove(list, id);
+                localStorage.setItem('queued', JSON.stringify(updatedList));
+            }
+        };
+
+        ls.remove = function (list, id) {
+            var beerList = ls.getList(list);
+            updatedList = beerList.filter(function (b) {
+                return id != b.id;
+            });
+        };
     });
 })();

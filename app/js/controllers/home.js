@@ -37,9 +37,9 @@
         }
 
 
-        hc.addToList = function(list, id, name, image, description, style){
-            // debugger 
-            ListService.addToList(list, id, name, image, description, style)
+        hc.addToList = function(list, id, name, image, description, style, availability, glass, abv){
+            debugger 
+            ListService.addToList(list, id, name, image, description, style, availability, glass, abv)
             // console.log(ListService.getLiked());
         }
         ///////////////////////
