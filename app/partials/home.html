@@ -92,6 +92,7 @@
                     <button class="btn-primary btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Liked</button>
                     <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Sucked</button>
                     <button class="btn-success btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Gotta Try It!</button>
+                    <a ui-sref="beer({id: beer.id})"> CLICK HERE FOR MORE INFORMATION </a>
                 </div>
             </div>
         </div>
