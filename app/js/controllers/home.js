@@ -6,7 +6,7 @@
             controller: HomeController
         })
 
-    // HomeController.$inject = ['BeerService', 'ListService']
+    HomeController.$inject = ['BeerService', 'ListService', $stateParams]
 
     function HomeController(BeerService, ListService) {
         var hc = this;
