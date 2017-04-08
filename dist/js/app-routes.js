@@ -4,9 +4,13 @@
 
     var app = angular.module('drinkUp').config(function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/login');
 
         $stateProvider.state({
+            name: 'login',
+            url: '/login',
+            template: '<login></login>'
+        }).state({
             name: 'home',
             url: '/home',
             template: '<home></home>'

@@ -2,5 +2,5 @@
 
 (function () {
 
-    angular.module('drinkUp', ['ui.router', 'ngSanitize', 'ngStorage']);
+    angular.module('drinkUp', ['ngRoute', 'ui.router', 'ngSanitize', 'ngStorage']);
 })();

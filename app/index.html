@@ -3,23 +3,23 @@
 
 <head>
   <meta charset="UTF-8">
-  
+
   <title>Drink Up</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Material Design -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-<!--Materialize CSS icons-->
+  <!--Materialize CSS icons-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
-  <link rel="stylesheet" href="sass/style.scss">
-<link rel="stylesheet" href="sass/draught.scss">
+  <!--<link rel="stylesheet" href="./sass/style.scss">
+  <link rel="stylesheet" href="./sass/draught.scss">-->
 
 
   <link rel="stylesheet" href="css/main.css">
-  
+
 </head>
 
 <body>
@@ -38,7 +38,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-            <a class="navbar-brand" href="#"><h1 class="small-title"><b>Drink Up</b></h1></a>
+        <a class="navbar-brand" href="#">
+          <h1 class="small-title"><b>Drink Up</b></h1>
+        </a>
 
       </div>
 
@@ -46,13 +48,13 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <!--<li class="dropdown">-->
-            <!--<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Beers <span class="caret"></span></div>-->
-            <!--<ul class="dropdown-menu">-->
-              <li class="nav-item"><a ui-sref="liked">Liked</a></li>
-              <li class="nav-item"><a ui-sref="sucked">Sucked</a></li>
-              <li class="nav-item"><a ui-sref="queued">Want To Try</a></li>
-            </ul>
-          </li>
+          <!--<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Beers <span class="caret"></span></div>-->
+          <!--<ul class="dropdown-menu">-->
+          <li class="nav-item"><a ui-sref="liked">Liked</a></li>
+          <li class="nav-item"><a ui-sref="sucked">Sucked</a></li>
+          <li class="nav-item"><a ui-sref="queued">Want To Try</a></li>
+        </ul>
+        </li>
         </ul>
   </nav>
 
@@ -80,21 +82,45 @@
 
   <!--angular-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+  <!--ng-sanitize-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.js"></script>
+  <!--ng-router-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+  <!--ui-router-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
 
   <!--Angular Ng-Storage-->
- <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+  <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+
+  <!--firebase-->
+  <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCMspcmfzGuteXyxBlomt76gbyF7wXJrhA",
+      authDomain: "drink-up-bc364.firebaseapp.com",
+      databaseURL: "https://drink-up-bc364.firebaseio.com",
+      projectId: "drink-up-bc364",
+      storageBucket: "drink-up-bc364.appspot.com",
+      messagingSenderId: "1047942610971"
+    };
+    firebase.initializeApp(config);
+  </script>
 
   <!--scripts-->
   <script src="js/app.js"></script>
   <script src="js/app-routes.js"></script>
+
+  <!--services-->
+  <script src="js/services/auth-service.js"></script>
   <script src="js/services/beer-service.js"></script>
   <script src="js/services/list-service.js"></script>
+  <!--controllers-->
   <script src="js/controllers/home.js"></script>
   <script src="js/controllers/liked.js"></script>
   <script src="js/controllers/sucked.js"></script>
   <script src="js/controllers/queued.js"></script>
+  <script src="js/controllers/login.js"></script>
 
 </body>
 
