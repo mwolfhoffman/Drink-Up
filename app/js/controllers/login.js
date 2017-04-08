@@ -12,9 +12,9 @@
 
         var lc = this;
 
-        lc.loginWithFacebook=function(){
+        lc.loginWithFacebook = function () {
             console.log('clicked')
-        var fbProvider = new firebase.auth.FacebookAuthProvider()
+            var fbProvider = new firebase.auth.FacebookAuthProvider()
             firebase.auth().signInWithPopup(fbProvider)
                 .then(function (result) {
                     console.log(result)
@@ -23,13 +23,13 @@
                     // The signed-in user info.
                     var user = result.user;
                     console.log('we got a user ', user)
-                    debugger 
-                    if(user){
-                    console.log('$window ', $window.location.href)
-                    $window.location.href='/#/home'
-                    console.log('redirect? ', $window.location.href)
-                    AuthService.setUser(user)
-                    }else{
+                    debugger
+                    if (user) {
+                        console.log('$window ', $window.location.href)
+                        $window.location.href = '/#/home'
+                        console.log('redirect? ', $window.location.href)
+                        AuthService.setUser(user)
+                    } else {
                         Materialize.toast('You Must Log In To Use This Site ', 4000)
                     }
                     // ...
@@ -45,8 +45,42 @@
                     // The firebase.auth.AuthCredential type that was used.
                     var credential = error.credential;
                     // ...
-                    return 
+                    return
                 });
+        }
+
+        lc.loginWithGoogle = () => {
+            var gProvider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(gProvider).then(function (result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                console.log('we got a user ', user)
+                debugger
+                if (user) {
+                    console.log('$window ', $window.location.href)
+                    $window.location.href = '/#/home'
+                    console.log('redirect? ', $window.location.href)
+                    AuthService.setUser(user)
+                } else {
+                    Materialize.toast('You Must Log In To Use This Site ', 4000)
+                }
+
+                // ...
+            }).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                console.log(errorMessage)
+                Materialize.toast(errorMessage, 4000)
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+                return 
+            });
         }
     }
 })();
