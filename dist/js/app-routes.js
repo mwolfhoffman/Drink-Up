@@ -11,9 +11,9 @@
             url: '/login',
             template: '<login></login>'
         }).state({
-            name: 'home',
-            url: '/home',
-            template: '<home></home>'
+            name: 'search',
+            url: '/search',
+            template: '<search></search>'
         }).state({
             name: 'liked',
             url: '/liked',

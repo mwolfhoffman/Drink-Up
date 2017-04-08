@@ -1,14 +1,14 @@
 (function () {
 
     angular.module('drinkUp')
-        .component('home', {
-            templateUrl: 'partials/home.html',
-            controller: HomeController
+        .component('search', {
+            templateUrl: 'partials/search.html',
+            controller: SearchController
         })
 
-    HomeController.$inject = ['BeerService', 'ListService', '$stateParams']
+    SearchController.$inject = ['BeerService', 'ListService', '$stateParams']
 
-    function HomeController(BeerService, ListService) {
+    function SearchController(BeerService, ListService) {
         var hc = this;
         hc.beerResults = [];
         hc.breweryResults = [];
