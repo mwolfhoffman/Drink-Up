@@ -62,6 +62,19 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col s3 offset-s1">
+            <button ng-click="$ctrl.addToList( 'liked', $ctrl.id, $ctrl.name)">Like</button>
+        </div>
+        <div class="col s3 offset-s1">
+            <button ng-click="$ctrl.addToList( 'sucked', $ctrl.id, $ctrl.name)">Hate</button>
+        </div>
+        <div class="col s3 offset-s1">
+            <button ng-click="$ctrl.addToList( 'queued', $ctrl.id, $ctrl.name)">Queue</button>
+        </div>
+    </div>
+
+
 </div>
 
 </div>

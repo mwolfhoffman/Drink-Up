@@ -17,24 +17,18 @@
         //////////////////////   
         // Beer Constructor// 
         ///////////////////
-        function Beer(id, name, image, description, style, availability, glass, abv) {
+        function Beer(id, name) {
             this.id = id;
             this.name = name;
-            this.image = image || 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg';
-            this.description = description;
-            this.style = style;
-            this.availability = availability;
-            this.glass = glass;
-            this.abv = abv;
         }
 
 
         ///////////////////
         //Add to any list//
         ///////////////////
-        ls.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
+        ls.addToList = function (list, id, name) {
             debugger
-            var beer = new Beer(id, name, image, description, style, availability, glass, abv)
+            var beer = new Beer(id, name)
             if (list === 'liked') {
                 liked.push(beer);
                 ls.saveList(liked);

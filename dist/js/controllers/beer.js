@@ -15,6 +15,8 @@
         bc.$onInit = function () {
             BeerService.getBeerById($stateParams.id, function (data) {
                 bc.beer = data.data.data;
+                bc.name = data.data.data.name;
+                bc.id = data.data.data.id;
                 bc.description = data.data.data.description ? data.data.data.description : 'There is no description for ' + bc.beer.name;
                 bc.label = data.data.data.label ? data.data.data.label.icon : 'https://hotemoji.com/images/emoji/2/l80sild2t522.png';
 
@@ -30,6 +32,11 @@
 
                 bc.glass = data.data.data.glass ? data.data.data.glass.name : 'N/A';
             });
+        };
+        bc.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
+            debugger;
+            ListService.addToList(list, id, name, image, description, style, availability, glass, abv);
+            // console.log(ListService.getLiked());
         };
     }
 })();
