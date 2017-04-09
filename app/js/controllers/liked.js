@@ -6,25 +6,36 @@
             controller: LikedController
         })
 
-    LikedController.$inject = ['ListService']
+    LikedController.$inject = ['ListService', 'AuthService', '$window']
 
-    function LikedController(ListService) {
+    function LikedController(ListService, AuthService, $window) {
         var lc = this;
 
 
-            //Lifecycle Gets List of Liked Beers 
+        //Lifecycle Gets List of Liked Beers 
         lc.liked = [];
-        lc.$onInit = function () { 
-            lc.liked = ListService.getList('liked');
+        lc.$onInit = function () {
+
+            let user = AuthService.getUser()
+            console.log('entered search page', user)
+            debugger
+            if (user.email) {
+                lc.liked = ListService.getList('liked');
+                return
+            } else {
+                console.log($window)
+                $window.location.href = '/#/login'
+                return
+            }
         }
 
 
         lc.removeLiked = (id) => {
             ListService.removeBeer('liked', id)
-            lc.liked = ListService.getList('liked');  
-                }
-            
-        
+            lc.liked = ListService.getList('liked');
+        }
+
+
 
     }
 

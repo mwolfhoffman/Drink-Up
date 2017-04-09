@@ -7,12 +7,23 @@
         controller: QueuedController
     });
 
-    function QueuedController(ListService) {
-        var qc = this;
+    QueuedController.$inject = ['ListService', 'AuthService', '$window'];
 
+    function QueuedController(ListService, AuthService, $window) {
+        var qc = this;
         qc.queued = [];
         qc.$onInit = function () {
-            qc.queued = ListService.getList('queued');
+            var user = AuthService.getUser();
+            console.log('entered search page', user);
+            debugger;
+            if (user.email) {
+                qc.queued = ListService.getList('queued');
+                return;
+            } else {
+                console.log($window);
+                $window.location.href = '/#/login';
+                return;
+            }
         };
 
         qc.removeQueued = function (id) {

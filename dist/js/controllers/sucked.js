@@ -7,14 +7,23 @@
         controller: SuckedController
     });
 
-    SuckedController.$inject = ['ListService'];
+    SuckedController.$inject = ['ListService', 'AuthService', '$window'];
 
-    function SuckedController(ListService) {
+    function SuckedController(ListService, AuthService, $window) {
         var sc = this;
-
         sc.sucked = [];
         sc.$onInit = function () {
-            sc.sucked = ListService.getList('sucked');
+            var user = AuthService.getUser();
+            console.log('entered search page', user);
+            debugger;
+            if (user.email) {
+                sc.sucked = ListService.getList('sucked');
+                return;
+            } else {
+                console.log($window);
+                $window.location.href = '/#/login';
+                return;
+            }
         };
 
         sc.removeSucked = function (id) {
