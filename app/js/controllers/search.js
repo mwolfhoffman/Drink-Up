@@ -21,6 +21,7 @@
                 return
             } else {
                 console.log($window)
+                Materialize.toast('You Must Be Logged In To Enter', 4000)
                 $window.location.href = '/#/login'
                 return
             }

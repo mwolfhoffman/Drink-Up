@@ -13,12 +13,10 @@
         //oninit 
         var bc = this;
         bc.$onInit = function () {
-            console.log('page loaded for ', $stateParams.id);
             BeerService.getBeerById($stateParams.id, function (data) {
-                console.log('is this the beer? ', data.data.data);
                 bc.beer = data.data.data;
                 bc.description = data.data.data.description ? data.data.data.description : 'There is no description for ' + bc.beer.name;
-                bc.label = data.data.data.label ? data.data.data.label.icon : 'http://hotemoji.com/images/emoji/2/l80sild2t522.png';
+                bc.label = data.data.data.label ? data.data.data.label.icon : 'https://hotemoji.com/images/emoji/2/l80sild2t522.png';
 
                 bc.abv = data.data.data.abv ? data.data.data.abv : 'N/A';
 

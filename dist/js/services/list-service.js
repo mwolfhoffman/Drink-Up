@@ -9,7 +9,7 @@
         /////////////////////////
         //Beer Lists Declared//
         //////////////////////
-        ls.updatedList;
+        var updatedList;
         var liked = [];
         var sucked = [];
         var queued = [];
@@ -106,6 +106,9 @@
         };
 
         ls.remove = function (list, id) {
+            debugger;
+            console.log('removing beer from  ... ', list);
+
             var beerList = ls.getList(list);
             updatedList = beerList.filter(function (b) {
                 return id != b.id;

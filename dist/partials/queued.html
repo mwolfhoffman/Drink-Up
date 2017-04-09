@@ -1,61 +1,22 @@
-<h1 class="page-title text-center"> Beers I Want To Try</h1>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h1>Queued</h1>
+        </div>
+    </div>
+</div>
 
-
-
-
-<div class="beer-container">
-<div class="beer-flex" ng-repeat="beer in $ctrl.queued">
-   <!--Part of the card that shows-->
-                <div class="card hoverable">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator center-block" src="{{beer.image}}" width="100px">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{beer.name}}<i class="material-icons right">info</i></span>
-                    </div>
-
-                        <!--Hidden part of the card-->
-                    <div class="card-reveal">
-
-                        <ul class="collapsible popout" data-collapsible="accordion">
-                            <li>
-                                <div class="collapsible-header">Style</div>
-                                <div class="collapsible-body">
-                                    <p>{{beer.style || "There is no style information on this beer."}}</p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="collapsible-header">Description</div>
-                                <div class="collapsible-body">
-                                    <p>{{beer.description || "Sorry, but there is no description for this beer!"}}</p>
-                                </div>
-                            </li>
-                            <!--<li>
-                                <div class="collapsible-header">How To Enjoy It</div>
-                                <div class="collapsible-body">
-                                    <p>{{beer.glass ? beer.glass : "Sorry, no glass information available for this selection.
-                                        I guess you'll have to enjoy it from the can or bottle.'"}}</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header">When Can I Get It?</div>
-                                <div class="collapsible-body">
-                                    <p>{{beer.availability || "No availability info for this beer"}}</p>
-                                </div>
-                            </li>-->
-                        </ul>
-                        <span class="card-title grey-text text-darken-4">Comments<i class="material-icons right">close</i></span>
-                        <p>Coming Soon...</p>
-            <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.removeQueued(beer.id)">Remove From This List</button>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div ng-repeat="beer in $ctrl.queued">
+                <div class="beer-flex">
+                    <a ui-sref="beer({id: beer.id})" class="left beer-item" role="button">{{beer.name}} </a>
+                </div>
+                <a class="right" ng-click="$ctrl.removeQueued(beer.id)">Remove From List</a>
+            </div>
         </div>
     </div>
 </div>
 </div>
-
-<script>
-
-  $(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
-</script>
+</div>

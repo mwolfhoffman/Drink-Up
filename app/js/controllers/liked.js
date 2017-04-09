@@ -14,16 +14,15 @@
 
         //Lifecycle Gets List of Liked Beers 
         lc.liked = [];
-        lc.$doCheck = function () {
+        lc.$onInit = function () {
 
             let user = AuthService.getUser()
-            console.log('entered search page', user)
             debugger
             if (user.email) {
                 lc.liked = ListService.getList('liked');
                 return
             } else {
-                console.log($window)
+                Materialize.toast('You Must Be Logged In To Enter', 4000)
                 $window.location.href = '/#/login'
                 return
             }
@@ -31,6 +30,9 @@
 
 
         lc.removeLiked = (id) => {
+
+            console.log('removing a liked beer')
+            $window.location.href="/#/liked"
             ListService.removeBeer('liked', id)
             lc.liked = ListService.getList('liked');
         }

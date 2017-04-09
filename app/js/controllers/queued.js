@@ -6,7 +6,7 @@
             controller: QueuedController
         })
 
-        QueuedController.$inject=['ListService', 'AuthService', '$window']
+    QueuedController.$inject = ['ListService', 'AuthService', '$window']
 
     function QueuedController(ListService, AuthService, $window) {
         var qc = this;
@@ -20,16 +20,19 @@
                 return
             } else {
                 console.log($window)
+                Materialize.toast('You Must Be Logged In To Enter', 4000)
                 $window.location.href = '/#/login'
                 return
             }
         }
 
-          qc.removeQueued = (id) => {
+        qc.removeQueued = function(id){
+            console.log(id)
+            console.log('removing beer')
             ListService.removeBeer('queued', id)
-            qc.queued = ListService.getList('queued');  
-                }  
-         
+            // qc.queued = ListService.getList('queued');
+        }
+
     }
 
 })(); 
