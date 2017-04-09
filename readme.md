@@ -1,32 +1,23 @@
-##Drink Up
+## Drink Up
 
-Independent Project to practice using AngularJS. 
+Independent Project to practice using Angular 1.5.x. 
 
+This project makes AJAX requests to BreweryDB's API. This application allows users to browse beers by searching by a beer's name or brewery name. Users must be authenticated by Firebase authentication. Version 1 uses Facebook and Google Authentication. After a user is authenticated they can save beers into their lists. Version 1 uses only local storage, but later versions will use a document storage database. 
 
-
-##Tech Used: 
--HTML5/CSS3
-
--Flexbox
-
--JavaScript
-
--jQuery
-
--Angular
-
--Gulp
-
-
-
-
-
-1. I make Ajax calls to the BreweryDB's free API.
-
-2. The goal is for users to search for beers in the RESTful API provided by Brewery DB. 
-
-3. They can add beers to their lists. 
-
-4. There is potential for new features. 
-
-5. I plan to revist this project and add MongoDB and user authentication. 
+### Tech Used:
+  -HTML5/CSS3
+  
+  -SCSS
+  
+  -Flexbox
+  
+  -JavaScript
+  
+  -jQuery
+  
+  -Angular 1.5
+  
+  -Gulp
+  
+  -Firebase Authentication
+  
