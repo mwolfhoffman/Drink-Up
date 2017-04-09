@@ -37,9 +37,6 @@
                     console.log('we got a user ', user)
                     debugger
                     if (user) {
-                        console.log('$window ', $window.location.href)
-                        // $window.location.href = '/#/search'
-                        console.log('redirect? ', $window.location.href)
                         AuthService.setUser(user)
                     } else {
                         Materialize.toast('You Must Log In To Use This Site ', 4000)
@@ -72,7 +69,7 @@
                 debugger
                 if (user) {
                     AuthService.setUser(user)
-                    $window.location.href = '/#/search'
+                    $window.location.href = '/Drink-Up/#/search'
                     // $location.path('/search')
                 } else {
                     Materialize.toast('You Must Log In To Use This Site ', 4000)
