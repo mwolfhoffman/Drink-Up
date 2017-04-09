@@ -14,7 +14,7 @@
         hc.beerResults = [];
         hc.breweryResults = [];
 
-        hc.$onInit = function () {
+        hc.$doCheck = function () {
             var user = AuthService.getUser();
             console.log('entered search page', user);
             debugger;
