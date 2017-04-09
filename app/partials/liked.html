@@ -8,13 +8,14 @@
 
 <div class="container">
     <div class="row">
-        <div class="col s12">
-            <div ng-repeat="beer in $ctrl.liked">
-                <div class="beer-flex">
-                    <a ui-sref="beer({id: beer.id})" class="left beer-item" role="button">{{beer.name}} </a>
-                    <a class="right btn remove-btn" role="button" ng-click="$ctrl.removeLiked(beer.id)">Remove From List</a>
-                </div>
+        <div ng-repeat="beer in $ctrl.liked">
+            <div class="col s6">
+                <a ui-sref="beer({id: beer.id})" class="left beer-item" role="button">{{beer.name}} </a>
+            </div>
+            <div class="col s2 offset-s4">
+                <a class="right btn remove-btn" ng-click="$ctrl.removeLiked(beer.id)">Remove From List</a>
             </div>
         </div>
+        </hr>
     </div>
 </div>

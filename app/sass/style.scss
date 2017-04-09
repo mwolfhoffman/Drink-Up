@@ -170,7 +170,9 @@ $background:#E9573F;
 .loginBtn--google:focus {
   background: #E74B37;
 }
-
+.remove-btn{
+  background: red;
+}
 
 @import 'draught.scss';
 @import 'responsive.scss';
