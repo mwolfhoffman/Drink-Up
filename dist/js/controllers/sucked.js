@@ -22,7 +22,7 @@
             } else {
                 console.log($window);
                 Materialize.toast('You Must Be Logged In To Enter', 4000);
-                $window.location.href = '/#/login';
+                $window.location.href = '/Drink-Up/#/login';
                 return;
             }
         };

@@ -23,7 +23,7 @@
     as.deleteUser = function () {
       as.user = {};
       // ...needs to redirect to login
-      $window.location.href = '/#/login';
+      $window.location.href = '/Drink-Up/#/login';
     };
   });
 })();
