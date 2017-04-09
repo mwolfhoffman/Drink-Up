@@ -11,7 +11,7 @@
     function SuckedController(ListService, AuthService, $window) {
         var sc = this;
         sc.sucked = [];
-        sc.$onInit = function () {
+        sc.$doCheck = function () {
             let user = AuthService.getUser()
             console.log('entered search page', user)
             debugger

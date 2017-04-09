@@ -14,7 +14,7 @@
 
         //Lifecycle Gets List of Liked Beers 
         lc.liked = [];
-        lc.$onInit = function () {
+        lc.$doCheck = function () {
 
             var user = AuthService.getUser();
             console.log('entered search page', user);

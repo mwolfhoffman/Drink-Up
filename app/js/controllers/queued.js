@@ -11,7 +11,7 @@
     function QueuedController(ListService, AuthService, $window) {
         var qc = this;
         qc.queued = [];
-        qc.$onInit = function () {
+        qc.$doCheck = function () {
             let user = AuthService.getUser()
             console.log('entered search page', user)
             debugger
