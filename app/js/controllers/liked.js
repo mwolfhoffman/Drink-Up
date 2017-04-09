@@ -23,7 +23,7 @@
                 return
             } else {
                 Materialize.toast('You Must Be Logged In To Enter', 4000)
-                $window.location.href ='/Drink-Up/#/login'
+                $window.location.href ='/#/login'
                 return
             }
         }
@@ -32,7 +32,7 @@
         lc.removeLiked = (id) => {
 
             console.log('removing a liked beer')
-            $window.location.href="/Drink-Up/#/liked"
+            $window.location.href="/#/liked"
             ListService.removeBeer('liked', id)
             lc.liked = ListService.getList('liked');
         }

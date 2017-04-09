@@ -69,7 +69,7 @@
                 debugger;
                 if (user) {
                     AuthService.setUser(user);
-                    $window.location.href = '/Drink-Up/#/search';
+                    $window.location.href = '#/search';
                     // $location.path('/search')
                 } else {
                     Materialize.toast('You Must Log In To Use This Site ', 4000);

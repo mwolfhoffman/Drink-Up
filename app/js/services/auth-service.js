@@ -22,7 +22,7 @@
     as.deleteUser = () => {
       as.user = {}
       // ...needs to redirect to login
-      $window.location.href='/Drink-Up/#/login'
+      $window.location.href='/#/login'
 
     }
 
