@@ -32,13 +32,6 @@ const jsFiles       = 'app/js/**/*.js';
 const controllers   = 'app/js/controllers/**/*.js';
 const services     = 'app/js/services/**/*.js';
 
-
-
-
-
-
-
-
 // --------------------------------------------------
 // Gulp Task Options
 // --------------------------------------------------
@@ -128,6 +121,9 @@ gulp.task('serve', () => {
   gulp.watch(['app/**/*.html', 'app/partials/**/*.html'], ['html'])
   gulp.watch(sassFiles, ['css'])
   gulp.watch([jsFiles, controllers, services], ['babel']);
+
+
+
 });
 
 

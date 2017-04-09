@@ -13,19 +13,19 @@
         hc.beerResults = [];
         hc.breweryResults = [];
 
-        hc.$doCheck = function () {
-            let user = AuthService.getUser()
-            console.log('entered search page', user)
-            debugger
-            if (user.email) {
-                return
-            } else {
-                console.log($window)
-                Materialize.toast('You Must Be Logged In To Enter', 4000)
-                $window.location.href = '/#/login'
-                return
-            }
-        }
+        // hc.$doCheck = function () {
+        //     let user = AuthService.getUser()
+        //     console.log('entered search page', user)
+        //     debugger
+        //     if (user.email) {
+        //         return
+        //     } else {
+        //         console.log($window)
+        //         Materialize.toast('You Must Be Logged In To Enter', 4000)
+        //         $window.location.href = '/#/login'
+        //         return
+        //     }
+        // }
 
     hc.logout = () => {
         AuthService.deleteUser()

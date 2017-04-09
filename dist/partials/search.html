@@ -22,7 +22,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class='style-form col-xs-12 '>
-                <h6>Version 1.0.0</h6>
+                <h6>Version 1.2.1</h6>
             </div>
         </div>
         <div class="row search-bar-home">
@@ -54,18 +54,28 @@
 </div>
 
 
-<div class="container">
+<div class="beer-container">
     <div class="row" ng-repeat="beer in $ctrl.beerResults">
-        <div class="col s3">
-            <b>{{beer.name}}</b>
-        </div>
-        <div class="col s3">
-            <a ui-sref="beer({id: beer.id})" class="btn btn-primary" role="button">Learn More </a>
-        </div>
-        <div class="col s6">
-            <button ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Like</button>
-            <button ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Hate</button>
-            <button ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Queue</button>
+        <div class="beer-flex">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">{{beer.name}}</span>
+                    <p><b>{{beer.breweries[0].name}}</b></p>
+                    <!--<hr>-->
+                    <p><em>{{beer.style.name}}</em></p>
+                </div>
+                <a ui-sref="beer({id: beer.id})" class="btn btn-primary" role="button">Learn More </a>
+                <div class="card-action">
+                    <a ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Like</a>
+                    <a ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Hate</a>
+                    <a ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Queue</a>
+                    <!--<a href="#">This is a link</a>
+                    <a href="#">This is a link</a>-->
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 </div>
@@ -74,38 +84,7 @@
 
 
 
-<!--
-        <div class="card hoverable">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator center-block" src="{{beer.labels? beer.labels.medium : 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Emoji_u1f37a.svg'
-}}" width="100px">
-            </div>
-            <div class="card-content">
-                <span class="card-title">{{beer.name}}
-                        <!--<i class="material-icons right">info</i></span>
-                <p>Style: {{beer.style.category.name || "Unknown Style"}}</p>
-
-                <button class="btn-sm" ng-click="showLists =!showLists">Add to a List</button>
-                <div class="the-lists" ng-show="showLists">
-                    <button class="btn-primary btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Liked</button>
-                    <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Sucked</button>
-                    <button class="btn-success btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Gotta Try It!</button>
-                </div>
-
-
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
-                <p>{{beer.description || "Sorry, but there is no description for this beer!"}}</p>
-                <div ng-if="beer.breweries">
-                    <!--Keeps List buttons off brweries
-                    <button class="btn-primary btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Liked</button>
-                    <button class="btn-danger btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Sucked</button>
-                    <button class="btn-success btn-sm" id="{{beer.id}}" ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Gotta Try It!</button>
-                    <a ui-sref="beer({id: beer.id})"></a>
-                </div>
-            </div>
-        </div>
+<div class="row">
+    <div class="col s12 m6">
     </div>
-
--->
+</div>
