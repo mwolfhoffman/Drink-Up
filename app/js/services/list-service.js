@@ -8,7 +8,7 @@
         /////////////////////////
         //Beer Lists Declared//
         //////////////////////
-        var updatedList;
+        ls.updatedList;
         var liked = [];
         var sucked = [];
         var queued = [];

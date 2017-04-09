@@ -7,7 +7,31 @@
         controller: BeerController
     });
 
-    BeerController.$inject = ['$stateParams'];
+    BeerController.$inject = ['BeerService', 'ListService', '$stateParams'];
 
-    function HomeController(BeerService, ListService) {}
+    function BeerController(BeerService, ListService, $stateParams) {
+        //oninit 
+        var bc = this;
+        bc.$onInit = function () {
+            console.log('page loaded for ', $stateParams.id);
+            BeerService.getBeerById($stateParams.id, function (data) {
+                console.log('is this the beer? ', data.data.data);
+                bc.beer = data.data.data;
+                bc.description = data.data.data.description ? data.data.data.description : 'There is no description for ' + bc.beer.name;
+                bc.label = data.data.data.label ? data.data.data.label.icon : 'http://hotemoji.com/images/emoji/2/l80sild2t522.png';
+
+                bc.abv = data.data.data.abv ? data.data.data.abv : 'N/A';
+
+                bc.ibu = data.data.data.ibu ? data.data.data.ibu : 'N/A';
+
+                bc.avail = data.data.data.available ? data.data.data.available.name : 'N/A';
+
+                bc.srm = data.data.data.srm ? data.data.data.srm.name : 'N/A';
+
+                bc.temp = data.data.data.servingTemperatureDisplay ? data.data.data.servingTemperatureDisplay : 'N/A, but probably cold';
+
+                bc.glass = data.data.data.glass ? data.data.data.glass.name : 'N/A';
+            });
+        };
+    }
 })();

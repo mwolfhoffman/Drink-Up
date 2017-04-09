@@ -6,8 +6,6 @@ $sunshine: #F7B733;
 $clean: #DFDCE3; 
 $background:#E9573F; 
 
-
-
 .title{
     font-family: 'Bungee', cursive;
     font-size: 5em;
@@ -44,12 +42,12 @@ $background:#E9573F;
 .card{    
     background: pink; 
     color: $fresh;  
-    height: 300px;
+    height: 200px;
     width: 400px; 
     border-radius: 35%;
     font-size: 0.5em;  
     
-      overflow-y: scroll;
+      // overflow-y: scroll;
  }
 
 .card-reveal{

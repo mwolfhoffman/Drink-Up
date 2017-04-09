@@ -17,6 +17,11 @@
                 template: '<search></search>'
             })
             .state({
+                name: 'beer',
+                url: '/beer/:id',
+                template: '<beer></beer>'
+            })
+            .state({
                 name: 'liked',
                 url: '/liked',
                 template: '<liked></liked>'
@@ -31,26 +36,26 @@
                 url: '/queued',
                 template: '<queued></queued>'
             })
-            .state({
-                name: 'queuedBeer',
-                url: '/queued/:id',
-                template: '<queued></queued>'
-            })
-            .state({
-                name: 'suckedBeer',
-                url: '/sucked/:id',
-                template: '<sucked></sucked>'
-            })
-            .state({
-                name: 'likedBeer',
-                url: '/liked/id',
-                template: '<liked></liked>'
-            })
-            .state({
-                name: 'beer',
-                url: '/beer:id',
-                template: '<beer></beer>'
-            })
+            // .state({
+            //     name: 'queuedBeer',
+            //     url: '/queued/:id',
+            //     template: '<queued></queued>'
+            // })
+            // .state({
+            //     name: 'suckedBeer',
+            //     url: '/sucked/:id',
+            //     template: '<sucked></sucked>'
+            // })
+            // .state({
+            //     name: 'likedBeer',
+            //     url: '/liked/id',
+            //     template: '<liked></liked>'
+            // })
+            // // .state({
+            //     name: 'beer',
+            //     url: '/beer:id',
+            //     template: '<beer></beer>'
+            // })
 
     })
 

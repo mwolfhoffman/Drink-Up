@@ -3,20 +3,27 @@
 (function () {
   var app = angular.module('drinkUp');
 
-  app.service('AuthService', function ($http) {
+  app.service('AuthService', function ($http, $location, $window) {
     var as = this;
     as.user = {};
 
     as.setUser = function (user) {
       debugger;
-      console.log('in the auth service ', user);
       as.user = user;
+      console.log('in the auth service ', as.user);
       //needs to redirect to search ... 
+      debugger;
+      console.log('current path  ', $location.path());
+      // $location.path('/search')
     };
 
+    as.getUser = function () {
+      return as.user;
+    };
     as.deleteUser = function () {
-      as.user = null;
+      as.user = {};
       // ...needs to redirect to login
+      $window.location.href = '/#/login';
     };
   });
 })();

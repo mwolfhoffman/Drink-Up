@@ -7,12 +7,29 @@
         controller: SearchController
     });
 
-    SearchController.$inject = ['BeerService', 'ListService', '$stateParams'];
+    SearchController.$inject = ['BeerService', 'ListService', 'AuthService', '$window'];
 
-    function SearchController(BeerService, ListService) {
+    function SearchController(BeerService, ListService, AuthService, $window) {
         var hc = this;
         hc.beerResults = [];
         hc.breweryResults = [];
+
+        hc.$onInit = function () {
+            var user = AuthService.getUser();
+            console.log('entered search page', user);
+            debugger;
+            if (user.email) {
+                return;
+            } else {
+                console.log($window);
+                $window.location.href = '/#/login';
+                return;
+            }
+        };
+
+        hc.logout = function () {
+            AuthService.deleteUser();
+        };
 
         ///////////////////////////////
         //searches everyything/////////

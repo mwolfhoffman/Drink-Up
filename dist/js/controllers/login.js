@@ -13,6 +13,18 @@
 
         var lc = this;
 
+        //  lc.$onInit = function () {
+        //     let user = AuthService.getUser()
+        //     debugger
+        //     if (!user==={}) {
+        //        return
+        //     }
+        //     else{
+        //         console.log('alraedy logged in', user)
+        //         $window.location.href = '/#/search'
+        //     }
+        // }
+
         lc.loginWithFacebook = function () {
             console.log('clicked');
             var fbProvider = new firebase.auth.FacebookAuthProvider();
@@ -26,7 +38,7 @@
                 debugger;
                 if (user) {
                     console.log('$window ', $window.location.href);
-                    $window.location.href = '/#/search';
+                    // $window.location.href = '/#/search'
                     console.log('redirect? ', $window.location.href);
                     AuthService.setUser(user);
                 } else {
@@ -59,10 +71,9 @@
                 console.log('we got a user ', user);
                 debugger;
                 if (user) {
-                    console.log('$window ', $window.location.href);
-                    $window.location.href = '/#/home';
-                    console.log('redirect? ', $window.location.href);
                     AuthService.setUser(user);
+                    $window.location.href = '/#/search';
+                    // $location.path('/search')
                 } else {
                     Materialize.toast('You Must Log In To Use This Site ', 4000);
                 }
