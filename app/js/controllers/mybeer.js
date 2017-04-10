@@ -27,7 +27,7 @@
             let user = $Auth.getUser()
             $List.postBeer(beer, user)
             Materialize.toast(`${beer.data.name} has been moved into your ${beer.list} list`, 4000)
-            $window.location.href = `/#/${beer.list}`
+            $window.location.href = `/Drink-Up/#/${beer.list}`
         }
     }
 })();

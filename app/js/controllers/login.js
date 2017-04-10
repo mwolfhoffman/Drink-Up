@@ -17,7 +17,7 @@
             }
             else {
                 console.log('alraedy logged in', user)
-                $window.location.href = '/#/search'
+                $window.location.href = '/Drink-Up/#/search'
             }
         }
 

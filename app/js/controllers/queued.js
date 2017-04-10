@@ -18,7 +18,7 @@
         } else {
             console.log($window)
             Materialize.toast('You Must Be Logged In To Enter', 4000)
-            $window.location.href = '/#/login'
+            $window.location.href = '/Drink-Up/#/login'
             return
         }
         console.log('array of queued beers ', qc.queued)
@@ -35,7 +35,7 @@
             let user = $Auth.getUser()
             $List.deleteBeer(beer, user).then(()=>{
                 $List.getList('queued', user)
-                $window.location.href='/#/queued'
+                $window.location.href='/Drink-Up/#/queued'
             })
         }
 

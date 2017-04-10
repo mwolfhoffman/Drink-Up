@@ -19,7 +19,7 @@
             } else {
                 console.log($window);
                 Materialize.toast('You Must Be Logged In To Enter', 4000);
-                $window.location.href = '/#/login';
+                $window.location.href = '/Drink-Up/#/login';
                 return;
             }
             console.log('array of queued beers ', qc.queued);
@@ -36,7 +36,7 @@
             var user = $Auth.getUser();
             $List.deleteBeer(beer, user).then(function () {
                 $List.getList('queued', user);
-                $window.location.href = '/#/queued';
+                $window.location.href = '/Drink-Up/#/queued';
             });
         };
     }

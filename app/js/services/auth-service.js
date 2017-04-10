@@ -7,7 +7,7 @@
 
       as.setUser = function (user) {
         as.user = user
-        $window.location.href='/#/search'
+        $window.location.href='/Drink-Up/#/search'
 
       }
 
@@ -17,7 +17,7 @@
     as.deleteUser = () => {
       as.user = {}
       // ...needs to redirect to login
-      $window.location.href='/#/login'
+      $window.location.href='/Drink-Up/#/login'
 
     }
 
