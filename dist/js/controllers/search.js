@@ -7,29 +7,28 @@
         controller: SearchController
     });
 
-    SearchController.$inject = ['BeerService', 'ListService', 'AuthService', '$window'];
+    SearchController.$inject = ['$Beer', '$List', '$Auth', '$window'];
 
-    function SearchController(BeerService, ListService, AuthService, $window) {
+    function SearchController($Beer, $List, $Auth, $window) {
         var hc = this;
         hc.beerResults = [];
         hc.breweryResults = [];
 
         hc.$doCheck = function () {
-            var user = AuthService.getUser();
+            var user = $Auth.getUser();
             console.log('entered search page', user);
-            debugger;
             if (user.email) {
                 return;
             } else {
                 console.log($window);
                 Materialize.toast('You Must Be Logged In To Enter', 4000);
-                $window.location.href = '/Drink-Up/#/login';
+                $window.location.href = '/#/login';
                 return;
             }
         };
 
         hc.logout = function () {
-            AuthService.deleteUser();
+            $Auth.deleteUser();
         };
 
         ///////////////////////////////
@@ -38,7 +37,7 @@
         hc.searchAll = function (query) {
             hc.resetAll(); //resets all 
             $('#search-btn').text('Loading...');
-            BeerService.getAll(query, function (data) {
+            $Beer.getAll(query, function (data) {
                 hc.allResults = data.data.data;
                 console.log(hc.allResults);
 
@@ -55,10 +54,9 @@
             });
         };
 
-        hc.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
-            debugger;
-            ListService.addToList(list, id, name, image, description, style, availability, glass, abv);
-            // console.log(ListService.getLiked());
+        hc.addToList = function (beer) {
+            var user = $Auth.getUser();
+            $List.postBeer(beer, user);
         };
         ///////////////////////
         ///////////////////////        

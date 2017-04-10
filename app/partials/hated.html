@@ -8,12 +8,12 @@
 
 <div class="container">
     <div class="row">
-        <div ng-repeat="beer in $ctrl.sucked">
+        <div ng-repeat="beer in $ctrl.hated">
             <div class="col s6">
-                <a ui-sref="beer({id: beer.id})" class="left beer-item" role="button">{{beer.name}} </a>
+                <a ui-sref="mybeer({id: beer.id})" class="left beer-item" role="button">{{beer.name}} </a>
             </div>
             <div class="col s2 offset-s4">
-                <a class="right btn remove-btn" ng-click="$ctrl.removeSucked(beer.id)">Remove From List</a>
+                <a class="right btn remove-btn" ng-click="$ctrl.removeHated({list:'hated', data:beer})">Remove From List</a>
             </div>
         </div>
         </hr>

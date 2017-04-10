@@ -7,14 +7,20 @@
         controller: BeerController
     });
 
-    BeerController.$inject = ['BeerService', 'ListService', '$stateParams'];
+    BeerController.$inject = ['$Beer', '$List', '$stateParams', '$window'];
 
-    function BeerController(BeerService, ListService, $stateParams) {
+    function BeerController($Beer, $List, $stateParams, $window) {
         //oninit 
         var bc = this;
         bc.$onInit = function () {
-            BeerService.getBeerById($stateParams.id, function (data) {
+            console.log($window);
+            $Beer.getBeerById($stateParams.id, function (data) {
+                console.log('beer result  ===>', data.data.data);
                 bc.beer = data.data.data;
+                bc.name = data.data.data.name;
+                bc.id = data.data.data.id;
+                bc.brewery = data.data.data.breweries[0];
+                //.name, .description, .established, .website, .locations[0].locality and also .region
                 bc.description = data.data.data.description ? data.data.data.description : 'There is no description for ' + bc.beer.name;
                 bc.label = data.data.data.label ? data.data.data.label.icon : 'https://hotemoji.com/images/emoji/2/l80sild2t522.png';
 
@@ -30,6 +36,10 @@
 
                 bc.glass = data.data.data.glass ? data.data.data.glass.name : 'N/A';
             });
+        };
+        bc.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
+            $List.addToList(list, id, name, image, description, style, availability, glass, abv);
+            // console.log($List.getLiked());
         };
     }
 })();

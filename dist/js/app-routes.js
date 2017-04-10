@@ -14,42 +14,35 @@
             name: 'search',
             url: '/search',
             template: '<search></search>'
-        }).state({
+        })
+        // .state({
+        //     name: 'search.results',
+        //     url: '^/:query',
+        //     results: '<results></results>'
+        // })
+
+        // http://www.codelord.net/2015/11/25/query-parameters-in-ui-router-without-needless-reloading-with-example-project/
+
+        .state({
             name: 'beer',
             url: '/beer/:id',
             template: '<beer></beer>'
+        }).state({
+            name: 'mybeer',
+            url: '/mybeer/:id',
+            template: '<mybeer></mybeer>'
         }).state({
             name: 'liked',
             url: '/liked',
             template: '<liked></liked>'
         }).state({
-            name: 'sucked',
-            url: '/sucked',
-            template: '<sucked></sucked>'
+            name: 'hated',
+            url: '/hated',
+            template: '<hated></hated>'
         }).state({
             name: 'queued',
             url: '/queued',
             template: '<queued></queued>'
         });
-        // .state({
-        //     name: 'queuedBeer',
-        //     url: '/queued/:id',
-        //     template: '<queued></queued>'
-        // })
-        // .state({
-        //     name: 'suckedBeer',
-        //     url: '/sucked/:id',
-        //     template: '<sucked></sucked>'
-        // })
-        // .state({
-        //     name: 'likedBeer',
-        //     url: '/liked/id',
-        //     template: '<liked></liked>'
-        // })
-        // // .state({
-        //     name: 'beer',
-        //     url: '/beer:id',
-        //     template: '<beer></beer>'
-        // })
     });
 })();

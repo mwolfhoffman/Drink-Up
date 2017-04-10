@@ -6,35 +6,38 @@
             controller: LikedController
         })
 
-    LikedController.$inject = ['ListService', 'AuthService', '$window']
+    LikedController.$inject = ['$List', '$Auth', '$window']
 
-    function LikedController(ListService, AuthService, $window) {
+    function LikedController($List, $Auth, $window) {
         var lc = this;
-
-
-        //Lifecycle Gets List of Liked Beers 
         lc.liked = [];
-        lc.$doCheck = function () {
 
-            let user = AuthService.getUser()
-            debugger
+        //Check if Authorize 
+        lc.$doCheck = function () {
+            let user = $Auth.getUser()
             if (user.email) {
-                lc.liked = ListService.getList('liked');
                 return
             } else {
                 Materialize.toast('You Must Be Logged In To Enter', 4000)
-                $window.location.href ='/Drink-Up/#/login'
+                $window.location.href = '/#/login'
                 return
             }
         }
 
+        //Get Liked Beers On Init
+        lc.$onInit = () => {
+            debugger
+            $List.getList('liked', $Auth.getUser());
+            lc.liked = $List.listResults
+            return lc.liked;
+        }
 
-        lc.removeLiked = (id) => {
-
-            console.log('removing a liked beer')
-            $window.location.href="/Drink-Up/#/liked"
-            ListService.removeBeer('liked', id)
-            lc.liked = ListService.getList('liked');
+        lc.removeLiked = (beer) => {
+            let user = $Auth.getUser()
+            $List.deleteBeer(beer, user).then(() => {
+                $List.getList('liked', user)
+                $window.location.href = '/#/liked'
+            })
         }
 
 
