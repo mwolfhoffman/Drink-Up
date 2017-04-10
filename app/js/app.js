@@ -8,8 +8,7 @@
         // 'firebase'
     ])
 
-
-
+window.angular = angular
 
 
 

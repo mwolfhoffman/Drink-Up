@@ -6,9 +6,10 @@
             controller: LoginController
         })
 
-    LoginController.$inject = ['$Auth', '$window']
+    LoginController.$inject = ['$Auth', '$window', '$state']
 
-    function LoginController($Auth, $window) {
+    function LoginController($Auth, $window, $state) {
+
         var lc = this;
         lc.$onInit = function () {
             let user = $Auth.getUser()
@@ -17,7 +18,7 @@
             }
             else {
                 console.log('alraedy logged in', user)
-                $window.location.href = '/Drink-Up/#/search'
+                $window.ngLocation.href = '/Drink-Up/#/search'
             }
         }
 

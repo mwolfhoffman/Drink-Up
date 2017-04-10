@@ -17,7 +17,7 @@
             } else {
                 console.log($window)
                 Materialize.toast('You Must Be Logged In To Enter', 4000)
-                $window.location.href = '#/login'
+                $window.ngLocation.href = '#/login'
                 return
             }
         }
@@ -35,7 +35,7 @@
             let user = $Auth.getUser()
             $List.deleteBeer(beer, user).then(() => {
                 $List.getList('hated', user)
-                $window.location.href = '/#/hated'
+                $window.ngLocation.href = '/#/hated'
             })
         }
 

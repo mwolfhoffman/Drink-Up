@@ -18,7 +18,7 @@
             } else {
                 console.log($window);
                 Materialize.toast('You Must Be Logged In To Enter', 4000);
-                $window.location.href = '#/login';
+                $window.ngLocation.href = '#/login';
                 return;
             }
         };
@@ -36,7 +36,7 @@
             var user = $Auth.getUser();
             $List.deleteBeer(beer, user).then(function () {
                 $List.getList('hated', user);
-                $window.location.href = '/#/hated';
+                $window.ngLocation.href = '/#/hated';
             });
         };
     }
