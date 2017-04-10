@@ -29,6 +29,7 @@ function QueuedController($Beer, $List, $Auth, $stateParams, $window) {
     }
 
     vm.removeQueued = (beer) => {
+        console.log('removing...', beer)
         let user = $Auth.getUser()
         $List.deleteBeer(beer, user).then(() => {
             $List.getList('queued', user)
