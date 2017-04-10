@@ -9,10 +9,12 @@
         debugger
         as.user = user
         console.log('in the auth service ', as.user)
+
         //needs to redirect to search ... 
         debugger 
         console.log('current path  ', $location.path())
         // $location.path('/search')
+        $window.location.href='/#/search'
 
       }
 

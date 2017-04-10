@@ -14,7 +14,16 @@
             name: 'search',
             url: '/search',
             template: '<search></search>'
-        }).state({
+        })
+        // .state({
+        //     name: 'search.results',
+        //     url: '^/:query',
+        //     results: '<results></results>'
+        // })
+
+        // http://www.codelord.net/2015/11/25/query-parameters-in-ui-router-without-needless-reloading-with-example-project/
+
+        .state({
             name: 'beer',
             url: '/beer/:id',
             template: '<beer></beer>'
