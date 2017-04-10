@@ -12,7 +12,7 @@
             return target[prop]
         },
         set(target, prop, value){
-          if(prop == "href"){
+          if(prop == "href" && $window.location.origin.includes('localhost')){
             if(value.includes('#')){
               let url = value.replace('/Drink-Up/#', '')
               let route = $window.NG_STATE_ROUTES.find(route=>route.url == url)
