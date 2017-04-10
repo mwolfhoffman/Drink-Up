@@ -13,7 +13,7 @@
                 <a ui-sref="beer({id: beer.id})" class="left beer-item" role="button">{{beer.name}} </a>
             </div>
             <div class="col s2 offset-s4">
-                <a class="right btn remove-btn" ng-click="$ctrl.removeQueued(beer.id)">Remove From List</a>
+                <a class="right btn remove-btn" ng-click="$ctrl.removeQueued({list:'queued', data:beer})">Remove From List</a>
             </div>
         </div>
         </hr>

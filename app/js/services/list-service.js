@@ -21,134 +21,14 @@
             })
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /////////////////////////
-        //Beer Lists Declared//
-        //////////////////////
-        var updatedList;
-        var liked = [];
-        var sucked = [];
-        var queued = [];
-
-
-        //////////////////////   
-        // Beer Constructor// 
-        ///////////////////
-        function Beer(id, name) {
-            this.id = id;
-            this.name = name;
+        ls.deleteBeer = (beer, user) => {
+            baseRef.ref(`/users/${user.uid}/${beer.list}/${beer.data.id}`).set(null)
+            return new Promise((res, rej) => {
+                res()
+            })
         }
 
 
-        ///////////////////
-        //Add to any list//
-        ///////////////////
-        // ls.addToList = function (list, id, name) {
-        //     var beer = new Beer(id, name)
-        //     if (list === 'liked') {
-        //         liked.push(beer);
-        //         ls.saveList(liked);
-        //     } else if (list === 'sucked') {
-        //         sucked.push(beer)
-        //         ls.saveList(sucked)
-        //     } else if (list === 'queued') {
-        //         queued.push(beer)
-        //         ls.saveList(queued);
-        //     } else {
-        //         return { "message": "Something went wrong." }
-        //     }
-        // }
-
-
-        /////////////////////
-        //Save Beer to List//
-        ////////////////////
-        ls.saveList = list => {
-            switch (list) {
-                case liked:
-                    localStorage.setItem('liked', JSON.stringify(liked))
-                    break;
-                case sucked:
-                    localStorage.setItem('sucked', JSON.stringify(sucked))
-                    break;
-                case queued:
-                    localStorage.setItem('queued', JSON.stringify(queued))
-                    break;
-                default:
-                    console.log('Error from ls.savedList()')
-            }
-        }
-
-        ///////////////////////
-        //Get Beers from List// 
-        //////////////////////
-        // ls.getList = list => {
-        //     var likedBeer, suckedBeer, queuedBeer;
-        //     if (list === 'liked') {
-        //         return ls.getBeerList(likedBeer, 'liked')
-        //     } else if (list === 'sucked') {
-        //         return ls.getBeerList(suckedBeer, 'sucked')
-        //     } else if (list === 'queued') {
-        //         return ls.getBeerList(queuedBeer, 'queued')
-
-        //     }
-        // }
-        ls.getBeerList = (listBeer, listString) => {
-            listBeer = localStorage.getItem(listString);
-            if (listBeer) {
-                console.log(JSON.parse(listBeer))
-                return JSON.parse(listBeer)
-            }
-            return [];
-        }
-
-
-
-        /////////////////////////
-        //Remove Beer from List//
-        /////////////////////////
-        // ls.removeBeer = (list, id) => {
-        //     if (list === 'liked') {
-        //         ls.remove(list, id)
-        //         localStorage.setItem('liked', JSON.stringify(updatedList))
-
-        //     } else if (list === 'sucked') {
-        //         ls.remove(list, id)
-        //         localStorage.setItem('sucked', JSON.stringify(updatedList))
-
-        //     } else if (list === 'queued') {
-        //         ls.remove(list, id)
-        //         localStorage.setItem('queued', JSON.stringify(updatedList))
-        //     }
-        // }
-
-        // ls.remove = function (list, id) {
-        //     debugger
-        //     console.log('removing beer from  ... ', list)
-
-        //     var beerList = ls.getList(list)
-        //     updatedList = beerList.filter((b) => {
-        //         return (id != b.id)
-        //     })
-        // }
 
 
     })

@@ -5,9 +5,7 @@
             templateUrl: 'partials/sucked.html',
             controller: SuckedController
         })
-
     SuckedController.$inject = ['$List', '$Auth', '$window']
-
     function SuckedController($List, $Auth, $window) {
         var sc = this;
         sc.sucked = [];
@@ -33,11 +31,15 @@
             return sc.sucked;
         }
 
-
-        sc.removeSucked = (id) => {
-            $List.removeBeer('sucked', id)
-            sc.sucked = $List.getList('sucked');
+        sc.removeSucked = (beer) => {
+            let user = $Auth.getUser()
+            $List.deleteBeer(beer, user).then(() => {
+                $List.getList('sucked', user)
+                $window.location.href = '/#/sucked'
+            })
         }
+
+
     }
 
 })(); 

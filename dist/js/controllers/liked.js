@@ -33,12 +33,12 @@
             return lc.liked;
         };
 
-        lc.removeLiked = function (id) {
-
-            console.log('removing a liked beer');
-            $window.location.href = "/#/liked";
-            $List.removeBeer('liked', id);
-            lc.liked = $List.getList('liked');
+        lc.removeLiked = function (beer) {
+            var user = $Auth.getUser();
+            $List.deleteBeer(beer, user).then(function () {
+                $List.getList('liked', user);
+                $window.location.href = '/#/liked';
+            });
         };
     }
 })();

@@ -8,7 +8,8 @@
     QueuedController.$inject = ['$List', '$Auth', '$window']
     function QueuedController($List, $Auth, $window) {
         var qc = this;
-        qc.queued = [];
+        qc.queued;
+
         qc.$doCheck = function () {
         let user = $Auth.getUser()
         if (user.email) {
@@ -30,12 +31,12 @@
             return qc.queued; 
         }
 
-
-        qc.removeQueued = function (id) {
-            console.log(id)
-            console.log('removing beer')
-            $List.removeBeer('queued', id)
-            // qc.queued = $List.getList('queued');
+        qc.removeQueued=(beer)=>{
+            let user = $Auth.getUser()
+            $List.deleteBeer(beer, user).then(()=>{
+                $List.getList('queued', user)
+                $window.location.href='/#/queued'
+            })
         }
 
     }
