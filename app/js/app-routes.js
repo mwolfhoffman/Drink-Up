@@ -44,6 +44,7 @@
                     url: '/hated',
                     template: '<hated></hated>'
                 })
+
                 .state({
                     name: 'queued',
                     url: '/queued',

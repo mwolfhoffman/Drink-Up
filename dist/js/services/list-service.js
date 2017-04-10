@@ -10,7 +10,6 @@
 
         //POST and PUT beer into a user's list
         ls.postBeer = function (beer, user) {
-            console.log('changing beer in service');
             debugger;
             //Firebase can't save '$' characters, so $$hashKey must be deleted
             if (beer.data.$$hashKey) {
@@ -24,14 +23,12 @@
 
         //Gets an entire list from the User's object, not the API
         ls.getList = function (list, user) {
-            console.log('getting list for ', list, 'the user is ', user);
             baseRef.ref('/users/' + user.uid + '/beers').on('value', function (snapshot) {
                 var all = snapshot.val();
                 ls.listResults = Object.values(all).filter(function (beer) {
                     return beer.listId === list;
                 });
             });
-            console.log(ls.listResults);
             return ls.listResults;
         };
 

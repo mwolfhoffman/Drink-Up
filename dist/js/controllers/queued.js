@@ -1,43 +1,41 @@
 'use strict';
 
-(function () {
-    angular.module('drinkUp').component('queued', {
-        templateUrl: 'partials/queued.html',
-        controller: QueuedController
-    });
+angular.module('drinkUp').component('queued', {
+    templateUrl: 'partials/queued.html',
+    controller: QueuedController
+});
 
-    QueuedController.$inject = ['$List', '$Auth', '$window'];
-    function QueuedController($List, $Auth, $window) {
-        var qc = this;
-        qc.queued;
+QueuedController.$inject = ['$Beer', '$List', '$Auth', '$stateParams', '$window'];
 
-        qc.$doCheck = function () {
-            var user = $Auth.getUser();
-            if (user.email) {
-                debugger;
-                return;
-            } else {
-                console.log($window);
-                Materialize.toast('You Must Be Logged In To Enter', 4000);
-                $window.location.href = '/#/login';
-                return;
-            }
-            console.log('array of queued beers ', qc.queued);
-        };
-
-        qc.$onInit = function () {
+function QueuedController($Beer, $List, $Auth, $stateParams, $window) {
+    var vm = this;
+    vm.queued;
+    vm.$doCheck = function () {
+        var user = $Auth.getUser();
+        if (user.email) {
             debugger;
-            $List.getList('queued', $Auth.getUser());
-            qc.queued = $List.listResults;
-            return qc.queued;
-        };
+            return;
+        } else {
+            Materialize.toast('You Must Be Logged In To Enter', 4000);
+            $window.location.href = '/#/login';
+            return;
+        }
+    };
 
-        qc.removeQueued = function (beer) {
-            var user = $Auth.getUser();
-            $List.deleteBeer(beer, user).then(function () {
-                $List.getList('queued', user);
-                $window.location.href = '/#/queued';
-            });
-        };
-    }
-})();
+    vm.$onInit = function () {
+        debugger;
+        $List.getList('queued', $Auth.getUser());
+        vm.queued = $List.listResults;
+        return vm.queued;
+    };
+
+    vm.removeQueued = function (beer) {
+        var user = $Auth.getUser();
+        $List.deleteBeer(beer, user).then(function () {
+            $List.getList('queued', user);
+            $window.location.href = '/#/queued';
+        });
+    };
+}
+
+// })();

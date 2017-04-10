@@ -14,9 +14,7 @@
       var searchUrl = url + encodeURIComponent(urlSearch);
       $http.get(searchUrl).then(function (res) {
         cb(res);
-      }, function (err) {
-        console.log(err);
-      });
+      }, function (err) {});
     };
 
     bs.getBeerById = function (id, cb) {
@@ -24,13 +22,10 @@
       var beerUrl = url + encodeURIComponent(urlBeer);
       $http.get(beerUrl).then(function (res) {
         cb(res);
-      }, function (err) {
-        console.log(err);
-      });
+      }, function (err) {});
     };
 
     bs.getUserBeerById = function (beerId, user) {
-      console.log('getting beer in beer service');
       baseRef.ref('/users/' + user.uid + '/beers/' + beerId).on('value', function (snapshot) {
         bs.myBeer = snapshot.val();
         return bs.myBeer;

@@ -16,7 +16,6 @@
                 return
             }
             else {
-                console.log('alraedy logged in', user)
                 $window.location.href = '/#/search'
             }
         }
@@ -35,12 +34,10 @@
                 var user = result.user;
                 if (user) {
                     firebase.database().ref(`/users/${user.uid}`).on('value', (existingUser) => {
-                        console.log(existingUser.val())
                         if (existingUser.val()) {
                             $Auth.setUser(existingUser.val())
                             return
                         } else {
-                            console.log(user)
                             var newUser = {
                                 uid: user.uid,
                                 email: user.email,
@@ -60,7 +57,6 @@
             }).catch(function (error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                console.log(errorMessage)
                 Materialize.toast(errorMessage, 4000)
                 var email = error.email;
                 var credential = error.credential;

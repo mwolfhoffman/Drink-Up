@@ -11,11 +11,9 @@
         hc.hated = [];
         hc.$doCheck = function () {
             let user = $Auth.getUser()
-            console.log('entered search page', user)
             if (user.email) {
                 return
             } else {
-                console.log($window)
                 Materialize.toast('You Must Be Logged In To Enter', 4000)
                 $window.location.href = '#/login'
                 return
@@ -27,7 +25,6 @@
             debugger
             $List.getList('hated', $Auth.getUser());
             hc.hated = $List.listResults
-            console.log(hc.hated)
             return hc.hated;
         }
 

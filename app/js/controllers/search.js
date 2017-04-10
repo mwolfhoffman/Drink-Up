@@ -15,11 +15,9 @@
 
         hc.$doCheck = function () {
             let user = $Auth.getUser()
-            console.log('entered search page', user)
             if (user.email) {
                 return
             } else {
-                console.log($window)
                 Materialize.toast('You Must Be Logged In To Enter', 4000)
                 $window.location.href = '/#/login'
                 return
@@ -38,7 +36,6 @@
             $('#search-btn').text('Loading...');
             $Beer.getAll(query, (data) => {
                 hc.allResults = data.data.data
-                console.log(hc.allResults)
 
                 if (!hc.allResults) {
                     $('#search-btn').text('No Results. Try Again');

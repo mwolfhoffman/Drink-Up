@@ -14,7 +14,6 @@
         .then(function (res) {
           cb(res)
         }, function (err) {
-          console.log(err)
         })
     }
 
@@ -25,12 +24,10 @@
         .then(function (res) {
           cb(res)
         }, function (err) {
-          console.log(err)
         })
     }
 
     bs.getUserBeerById = (beerId, user) => {
-      console.log('getting beer in beer service')
       baseRef.ref(`/users/${user.uid}/beers/${beerId}`).on('value', snapshot => {
         bs.myBeer = snapshot.val()
         return bs.myBeer

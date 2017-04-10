@@ -12,9 +12,7 @@
         //oninit 
         let bc = this
         bc.$onInit = function () {
-            console.log($window)
             $Beer.getBeerById($stateParams.id, (data) => {
-                console.log('beer result  ===>', data.data.data)
                 bc.beer = data.data.data
                 bc.name=data.data.data.name
                 bc.id=data.data.data.id
@@ -45,7 +43,6 @@
         }
         bc.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
             $List.addToList(list, id, name, image, description, style, availability, glass, abv)
-            // console.log($List.getLiked());
         }
     }
 
