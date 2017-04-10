@@ -30,6 +30,11 @@
                     template: '<beer></beer>'
                 })
                 .state({
+                    name: 'mybeer',
+                    url: '/mybeer/:id',
+                    template: '<mybeer></mybeer>'
+                })
+                .state({
                     name: 'liked',
                     url: '/liked',
                     template: '<liked></liked>'

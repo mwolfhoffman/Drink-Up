@@ -7,12 +7,13 @@
         controller: BeerController
     });
 
-    BeerController.$inject = ['$Beer', '$List', '$stateParams'];
+    BeerController.$inject = ['$Beer', '$List', '$stateParams', '$window'];
 
-    function BeerController($Beer, $List, $stateParams) {
+    function BeerController($Beer, $List, $stateParams, $window) {
         //oninit 
         var bc = this;
         bc.$onInit = function () {
+            console.log($window);
             $Beer.getBeerById($stateParams.id, function (data) {
                 console.log('beer result  ===>', data.data.data);
                 bc.beer = data.data.data;

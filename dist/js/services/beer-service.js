@@ -5,6 +5,8 @@
 
   app.service('$Beer', function ($http) {
     var bs = this;
+    bs.myBeer;
+    var baseRef = firebase.database();
     var url = '//bcw-getter.herokuapp.com/?url=';
 
     bs.getAll = function (query, cb) {
@@ -24,6 +26,14 @@
         cb(res);
       }, function (err) {
         console.log(err);
+      });
+    };
+
+    bs.getUserBeerById = function (beerId, user) {
+      console.log('getting beer in beer service');
+      baseRef.ref('/users/' + user.uid + '/beers/' + beerId).on('value', function (snapshot) {
+        bs.myBeer = snapshot.val();
+        return bs.myBeer;
       });
     };
   });
