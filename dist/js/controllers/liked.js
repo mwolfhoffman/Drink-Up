@@ -7,19 +7,16 @@
         controller: LikedController
     });
 
-    LikedController.$inject = ['ListService', 'AuthService', '$window'];
+    LikedController.$inject = ['$List', '$Auth', '$window'];
 
-    function LikedController(ListService, AuthService, $window) {
+    function LikedController($List, $Auth, $window) {
         var lc = this;
-
-        //Lifecycle Gets List of Liked Beers 
         lc.liked = [];
-        lc.$doCheck = function () {
 
-            var user = AuthService.getUser();
-            debugger;
+        //Check if Authorize 
+        lc.$doCheck = function () {
+            var user = $Auth.getUser();
             if (user.email) {
-                lc.liked = ListService.getList('liked');
                 return;
             } else {
                 Materialize.toast('You Must Be Logged In To Enter', 4000);
@@ -28,12 +25,20 @@
             }
         };
 
+        //Get Liked Beers On Init
+        lc.$onInit = function () {
+            debugger;
+            $List.getList('liked', $Auth.getUser());
+            lc.liked = $List.listResults;
+            return lc.liked;
+        };
+
         lc.removeLiked = function (id) {
 
             console.log('removing a liked beer');
             $window.location.href = "/#/liked";
-            ListService.removeBeer('liked', id);
-            lc.liked = ListService.getList('liked');
+            $List.removeBeer('liked', id);
+            lc.liked = $List.getList('liked');
         };
     }
 })();

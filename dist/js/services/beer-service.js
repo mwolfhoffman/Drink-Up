@@ -3,7 +3,7 @@
 (function () {
   var app = angular.module('drinkUp');
 
-  app.service('BeerService', function ($http) {
+  app.service('$Beer', function ($http) {
     var bs = this;
     var url = '//bcw-getter.herokuapp.com/?url=';
 

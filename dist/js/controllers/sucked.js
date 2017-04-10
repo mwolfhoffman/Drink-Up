@@ -7,17 +7,15 @@
         controller: SuckedController
     });
 
-    SuckedController.$inject = ['ListService', 'AuthService', '$window'];
+    SuckedController.$inject = ['$List', '$Auth', '$window'];
 
-    function SuckedController(ListService, AuthService, $window) {
+    function SuckedController($List, $Auth, $window) {
         var sc = this;
         sc.sucked = [];
         sc.$doCheck = function () {
-            var user = AuthService.getUser();
+            var user = $Auth.getUser();
             console.log('entered search page', user);
-            debugger;
             if (user.email) {
-                sc.sucked = ListService.getList('sucked');
                 return;
             } else {
                 console.log($window);
@@ -27,9 +25,18 @@
             }
         };
 
+        //Get Hated Beers On Init
+        sc.$onInit = function () {
+            debugger;
+            $List.getList('hated', $Auth.getUser());
+            sc.sucked = $List.listResults;
+            console.log(sc.sucked);
+            return sc.sucked;
+        };
+
         sc.removeSucked = function (id) {
-            ListService.removeBeer('sucked', id);
-            sc.sucked = ListService.getList('sucked');
+            $List.removeBeer('sucked', id);
+            sc.sucked = $List.getList('sucked');
         };
     }
 })();

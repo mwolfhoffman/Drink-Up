@@ -38,8 +38,8 @@
 
 
 <div>
-<p>Results will appear here</p>
-<ui-view></ui-view>
+    <p>Results will appear here</p>
+    <ui-view></ui-view>
 </div>
 
 
@@ -70,16 +70,11 @@
                 </div>
                 <a ui-sref="beer({id: beer.id})" class="btn btn-primary" role="button">Learn More </a>
                 <div class="card-action">
-                    <a ng-click="$ctrl.addToList( 'liked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Like</a>
-                    <a ng-click="$ctrl.addToList( 'sucked', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Hate</a>
-                    <a ng-click="$ctrl.addToList( 'queued', beer.id, beer.name, beer.labels.medium, beer.description, beer.style.category.name, beer.available.description, beer.glass.name, beer.abv)">Queue</a>
-                    <!--<a href="#">This is a link</a>
-                    <a href="#">This is a link</a>-->
+                    <a ng-click="$ctrl.addToList({list: 'liked', data:beer})">Like</a>
+                    <a ng-click="$ctrl.addToList({list: 'hated', data:beer})">Hate</a>
+                    <a ng-click="$ctrl.addToList({list: 'queued', data:beer})">Queue</a>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </div>

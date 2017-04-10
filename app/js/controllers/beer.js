@@ -6,13 +6,13 @@
             controller: BeerController
         })
 
-    BeerController.$inject = ['BeerService', 'ListService', '$stateParams']
+    BeerController.$inject = ['$Beer', '$List', '$stateParams']
 
-    function BeerController(BeerService, ListService, $stateParams) {
+    function BeerController($Beer, $List, $stateParams) {
         //oninit 
         let bc = this
         bc.$onInit = function () {
-            BeerService.getBeerById($stateParams.id, (data) => {
+            $Beer.getBeerById($stateParams.id, (data) => {
                 console.log('beer result  ===>', data.data.data)
                 bc.beer = data.data.data
                 bc.name=data.data.data.name
@@ -43,9 +43,8 @@
             })
         }
         bc.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
-            debugger
-            ListService.addToList(list, id, name, image, description, style, availability, glass, abv)
-            // console.log(ListService.getLiked());
+            $List.addToList(list, id, name, image, description, style, availability, glass, abv)
+            // console.log($List.getLiked());
         }
     }
 
