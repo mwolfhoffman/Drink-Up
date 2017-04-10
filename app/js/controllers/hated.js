@@ -1,15 +1,15 @@
 (function () {
 
     angular.module('drinkUp')
-        .component('sucked', {
-            templateUrl: 'partials/sucked.html',
-            controller: SuckedController
+        .component('hated', {
+            templateUrl: 'partials/hated.html',
+            controller: HatedController
         })
-    SuckedController.$inject = ['$List', '$Auth', '$window']
-    function SuckedController($List, $Auth, $window) {
-        var sc = this;
-        sc.sucked = [];
-        sc.$doCheck = function () {
+    HatedController.$inject = ['$List', '$Auth', '$window']
+    function HatedController($List, $Auth, $window) {
+        var hc = this;
+        hc.hated = [];
+        hc.$doCheck = function () {
             let user = $Auth.getUser()
             console.log('entered search page', user)
             if (user.email) {
@@ -23,19 +23,19 @@
         }
 
         //Get Hated Beers On Init
-        sc.$onInit = () => {
+        hc.$onInit = () => {
             debugger
             $List.getList('hated', $Auth.getUser());
-            sc.sucked = $List.listResults
-            console.log(sc.sucked)
-            return sc.sucked;
+            hc.hated = $List.listResults
+            console.log(hc.hated)
+            return hc.hated;
         }
 
-        sc.removeSucked = (beer) => {
+        hc.removeHated = (beer) => {
             let user = $Auth.getUser()
             $List.deleteBeer(beer, user).then(() => {
-                $List.getList('sucked', user)
-                $window.location.href = '/#/sucked'
+                $List.getList('hated', user)
+                $window.location.href = '/#/hated'
             })
         }
 
