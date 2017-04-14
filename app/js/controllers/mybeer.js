@@ -6,9 +6,9 @@
             controller: MyBeerController
         })
 
-    MyBeerController.$inject = ['$Beer', '$List', '$Auth', '$stateParams', '$window']
+    MyBeerController.$inject = ['$Beer', '$List', '$Auth', '$stateParams', '$window', '$state']
 
-    function MyBeerController($Beer, $List, $Auth, $stateParams, $window) {
+    function MyBeerController($Beer, $List, $Auth, $stateParams, $window, $state) {
         //oninit 
         let bc = this
         bc.myBeer;
@@ -28,7 +28,8 @@
             let user = $Auth.getUser()
             $List.postBeer(beer, user)
             Materialize.toast(`${beer.data.name} has been moved into your ${beer.list} list`, 4000)
-            $window.ngLocation.href = `/Drink-Up/#/${beer.list}`
+            // $window.ngLocation.href = `/Drink-Up/#/${beer.list}`
+            $state.go(`${beer.list}`)
         }
     }
 })();

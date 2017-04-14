@@ -13,12 +13,14 @@
         var lc = this;
         lc.$onInit = function () {
             let user = $Auth.getUser()
+            debugger 
             if (!user.email) {
                 return
             }
             else {
                 console.log('alraedy logged in', user)
-                $window.ngLocation.href = '/Drink-Up/#/search'
+                // $window.ngLocation.href = '/Drink-Up/#/search'
+                $state.go('search')
             }
         }
 

@@ -5,8 +5,8 @@
             templateUrl: 'partials/hated.html',
             controller: HatedController
         })
-    HatedController.$inject = ['$List', '$Auth', '$window']
-    function HatedController($List, $Auth, $window) {
+    HatedController.$inject = ['$List', '$Auth', '$window', '$state']
+    function HatedController($List, $Auth, $window, $state) {
         var hc = this;
         hc.hated = [];
         hc.$doCheck = function () {
@@ -17,7 +17,8 @@
             } else {
                 console.log($window)
                 Materialize.toast('You Must Be Logged In To Enter', 4000)
-                $window.ngLocation.href = '#/login'
+                // $window.ngLocation.href = '#/login'
+                $state.go('login')
                 return
             }
         }
@@ -35,7 +36,8 @@
             let user = $Auth.getUser()
             $List.deleteBeer(beer, user).then(() => {
                 $List.getList('hated', user)
-                $window.ngLocation.href = '/#/hated'
+                // $window.ngLocation.href = '/#/hated'
+                $state.go('hated')
             })
         }
 

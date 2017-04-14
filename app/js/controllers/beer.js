@@ -6,9 +6,9 @@
             controller: BeerController
         })
 
-    BeerController.$inject = ['$Beer', '$List', '$stateParams', '$window']
+    BeerController.$inject = ['$Beer', '$Auth','$List', '$stateParams', '$window']
 
-    function BeerController($Beer, $List, $stateParams, $window) {
+    function BeerController($Beer, $Auth, $List, $stateParams, $window) {
         //oninit 
         let bc = this
         bc.$onInit = function () {
@@ -16,10 +16,10 @@
             $Beer.getBeerById($stateParams.id, (data) => {
                 console.log('beer result  ===>', data.data.data)
                 bc.beer = data.data.data
-                bc.name=data.data.data.name
-                bc.id=data.data.data.id
-                bc.brewery=data.data.data.breweries[0]
-                    //.name, .description, .established, .website, .locations[0].locality and also .region
+                bc.name = data.data.data.name
+                bc.id = data.data.data.id
+                bc.brewery = data.data.data.breweries[0]
+                //.name, .description, .established, .website, .locations[0].locality and also .region
                 bc.description = data.data.data.description ? data.data.data.description : `There is no description for ${bc.beer.name}`
                 bc.label = data.data.data.label ? data.data.data.label.icon : 'https://hotemoji.com/images/emoji/2/l80sild2t522.png'
 
@@ -46,6 +46,15 @@
         bc.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
             $List.addToList(list, id, name, image, description, style, availability, glass, abv)
             // console.log($List.getLiked());
+        }
+
+        bc.changeList = function (beer) {
+            console.log('changing list for my beer')
+            let user = $Auth.getUser()
+            $List.postBeer(beer, user)
+            Materialize.toast(`${beer.data.name} has been moved into your ${beer.list} list`, 4000)
+            // $window.ngLocation.href = `/Drink-Up/#/${beer.list}`
+            $state.go(`${beer.list}`)
         }
     }
 

@@ -63,13 +63,13 @@
 
     <div class="row">
         <div class="col s3 offset-s1">
-            <button ng-click="$ctrl.addToList( 'liked', $ctrl.id, $ctrl.name)">Like</button>
+            <button ng-click="$ctrl.changeList({list: 'liked', data:$ctrl.beer})">Like</button>
         </div>
         <div class="col s3 offset-s1">
-            <button ng-click="$ctrl.addToList( 'hated', $ctrl.id, $ctrl.name)">Hate</button>
+            <button ng-click="$ctrl.changeList({list: 'hated', data:$ctrl.beer})">Hate</button>
         </div>
         <div class="col s3 offset-s1">
-            <button ng-click="$ctrl.addToList( 'queued', $ctrl.id, $ctrl.name)">Queue</button>
+            <button ng-click="$ctrl.changeList({list: 'queued', data:$ctrl.beer})">Queue</button>
         </div>
     </div>
 
