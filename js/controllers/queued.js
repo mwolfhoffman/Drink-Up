@@ -6,8 +6,8 @@
         controller: QueuedController
     });
 
-    QueuedController.$inject = ['$List', '$Auth', '$window'];
-    function QueuedController($List, $Auth, $window) {
+    QueuedController.$inject = ['$List', '$Auth', '$window', '$state'];
+    function QueuedController($List, $Auth, $window, $state) {
         var qc = this;
         qc.queued;
 
@@ -19,7 +19,8 @@
             } else {
                 console.log($window);
                 Materialize.toast('You Must Be Logged In To Enter', 4000);
-                $window.location.href = '/Drink-Up/#/login';
+                // $window.ngLocation.href = '/Drink-Up/#/login'
+                $state.go('login');
                 return;
             }
             console.log('array of queued beers ', qc.queued);
@@ -36,7 +37,8 @@
             var user = $Auth.getUser();
             $List.deleteBeer(beer, user).then(function () {
                 $List.getList('queued', user);
-                $window.location.href = '/Drink-Up/#/queued';
+                // $window.ngLocation.href='/Drink-Up/#/queued'
+                $state.go('queued');
             });
         };
     }

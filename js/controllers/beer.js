@@ -7,9 +7,9 @@
         controller: BeerController
     });
 
-    BeerController.$inject = ['$Beer', '$List', '$stateParams', '$window'];
+    BeerController.$inject = ['$Beer', '$Auth', '$List', '$stateParams', '$window'];
 
-    function BeerController($Beer, $List, $stateParams, $window) {
+    function BeerController($Beer, $Auth, $List, $stateParams, $window) {
         //oninit 
         var bc = this;
         bc.$onInit = function () {
@@ -40,6 +40,15 @@
         bc.addToList = function (list, id, name, image, description, style, availability, glass, abv) {
             $List.addToList(list, id, name, image, description, style, availability, glass, abv);
             // console.log($List.getLiked());
+        };
+
+        bc.changeList = function (beer) {
+            console.log('changing list for my beer');
+            var user = $Auth.getUser();
+            $List.postBeer(beer, user);
+            Materialize.toast(beer.data.name + ' has been moved into your ' + beer.list + ' list', 4000);
+            // $window.ngLocation.href = `/Drink-Up/#/${beer.list}`
+            $state.go('' + beer.list);
         };
     }
 })();

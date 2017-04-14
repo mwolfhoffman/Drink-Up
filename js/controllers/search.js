@@ -7,9 +7,9 @@
         controller: SearchController
     });
 
-    SearchController.$inject = ['$Beer', '$List', '$Auth', '$window'];
+    SearchController.$inject = ['$Beer', '$List', '$Auth', '$window', '$state'];
 
-    function SearchController($Beer, $List, $Auth, $window) {
+    function SearchController($Beer, $List, $Auth, $window, $state) {
         var hc = this;
         hc.beerResults = [];
         hc.breweryResults = [];
@@ -22,7 +22,8 @@
             } else {
                 console.log($window);
                 Materialize.toast('You Must Be Logged In To Enter', 4000);
-                $window.location.href = '/Drink-Up/#/login';
+                // $window.ngLocation.href = '/Drink-Up/#/login'
+                $state.go('login');
                 return;
             }
         };
